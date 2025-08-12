@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-light-gray: #f0f1f0;
+    --color-dark-red: #972827;
+    --color-yellow: #f0be01;
+    --color-brown: #744d26;
+    --color-dark-green: #515025;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom utility classes */
+@layer utilities {
+  .font-poppins {
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .bg-light-gray {
+    background-color: #f0f1f0;
+  }
+  
+  .bg-dark-red {
+    background-color: #972827;
+  }
+  
+  .bg-yellow {
+    background-color: #f0be01;
+  }
+  
+  .text-light-gray {
+    color: #f0f1f0;
+  }
+  
+  .text-dark-red {
+    color: #972827;
+  }
+  
+  .text-yellow {
+    color: #f0be01;
+  }
+  
+  .border-light-gray {
+    border-color: #f0f1f0;
+  }
+  
+  .border-dark-red {
+    border-color: #972827;
+  }
+  
+  .border-yellow {
+    border-color: #f0be01;
+  }
+
+  /* 3D Transform utilities for flip cards */
+  .transform-style-preserve-3d {
+    transform-style: preserve-3d;
+  }
+  
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+  
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+}
+
+/* Keyframes for animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
