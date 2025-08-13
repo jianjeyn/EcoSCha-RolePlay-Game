@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import Header from "../components/common/Header";
+import Background from "../components/common/Background";
 
 const CountdownPage = () => {
   const [count, setCount] = useState(3);
@@ -13,7 +15,7 @@ const CountdownPage = () => {
           clearInterval(timer);
           // Navigate to choose topic page after countdown
           setTimeout(() => {
-            navigate('/choose-topic-card');
+            navigate("/choose-topic-card");
           }, 1000);
           return 0;
         }
@@ -35,34 +37,28 @@ const CountdownPage = () => {
   }, [count]);
 
   const getCountdownImage = () => {
-    switch(count) {
+    switch (count) {
       case 3:
-        return '/assets/images/icons/3.png';
+        return "/assets/images/icons/3.png";
       case 2:
-        return '/assets/images/icons/2.png';
+        return "/assets/images/icons/2.png";
       case 1:
-        return '/assets/images/icons/1.png';
+        return "/assets/images/icons/1.png";
       default:
         return null;
     }
   };
 
   return (
-    <div 
-      className="min-h-screen relative flex items-center justify-center"
-      style={{
-        backgroundImage: 'url(/assets/images/backgrounds/signup-bg.png)',
-        backgroundSize: '100% 100%',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      }}
-    >
+    <Background>
+      <Header />
+
       {/* Countdown Display */}
-      <div className="flex items-center justify-center">
+      <div className="flex items-center justify-center h-[calc(100vh-80px)]">
         {count > 0 && (
-          <div 
+          <div
             className={`transition-all duration-300 transform ${
-              isVisible ? 'scale-100 opacity-100' : 'scale-75 opacity-0'
+              isVisible ? "scale-100 opacity-100" : "scale-75 opacity-0"
             }`}
           >
             <img
@@ -72,7 +68,7 @@ const CountdownPage = () => {
             />
           </div>
         )}
-        
+
         {count === 0 && (
           <div className="text-center">
             <div className="text-6xl font-bold text-yellow animate-bounce">
@@ -81,7 +77,7 @@ const CountdownPage = () => {
           </div>
         )}
       </div>
-    </div>
+    </Background>
   );
 };
 

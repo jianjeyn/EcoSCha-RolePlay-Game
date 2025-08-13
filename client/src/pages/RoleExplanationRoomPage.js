@@ -1,35 +1,39 @@
 // RoleExplanationRoomPage - Update import dan component
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import Header from "../components/common/Header";
+import Background from "../components/common/Background";
 
 const RoleExplanationRoomPage = () => {
   const { playerId } = useParams();
-  const [roomCode, setRoomCode] = useState('A3HJGF89');
-  const [generatedCode, setGeneratedCode] = useState('');
-  const [currentPlayerRole, setCurrentPlayerRole] = useState('ECO CITIZEN1');
+  const [roomCode, setRoomCode] = useState("A3HJGF89");
+  const [generatedCode, setGeneratedCode] = useState("");
+  const [currentPlayerRole, setCurrentPlayerRole] = useState("ECO CITIZEN1");
 
   useEffect(() => {
     // Get player ID from localStorage
-    const playerIdFromUrl = playerId || localStorage.getItem('playerId') || 1;
-    
+    const playerIdFromUrl = playerId || localStorage.getItem("playerId") || 1;
+
     // Map player ID to role
     const playerRoleMap = {
-      1: 'ECO CITIZEN2', // Asep
-      2: 'ECO CITIZEN1', // Ibu Eneng
-      3: 'GREEN GUARDIAN1', // Kang Raka
-      4: 'GREEN GUARDIAN2', // Teh Rani
-      5: 'WASTE VILLAIN2', // Mang Karwa
-      6: 'WASTE VILLAIN1', // Yana
-      7: 'WASTE MANAGER' // Waste Manager
+      1: "ECO CITIZEN2", // Asep
+      2: "ECO CITIZEN1", // Ibu Eneng
+      3: "GREEN GUARDIAN1", // Kang Raka
+      4: "GREEN GUARDIAN2", // Teh Rani
+      5: "WASTE VILLAIN2", // Mang Karwa
+      6: "WASTE VILLAIN1", // Yana
+      7: "WASTE MANAGER", // Waste Manager
     };
 
-    localStorage.setItem('playerId', playerIdFromUrl);
-    setCurrentPlayerRole(playerRoleMap[parseInt(playerIdFromUrl)] || 'ECO CITIZEN1');
+    localStorage.setItem("playerId", playerIdFromUrl);
+    setCurrentPlayerRole(
+      playerRoleMap[parseInt(playerIdFromUrl)] || "ECO CITIZEN1"
+    );
   }, [playerId]);
 
   const generateNewCode = () => {
-    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-    let result = '';
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    let result = "";
     for (let i = 0; i < 8; i++) {
       result += chars.charAt(Math.floor(Math.random() * chars.length));
     }
@@ -39,44 +43,47 @@ const RoleExplanationRoomPage = () => {
 
   const RoleCard = ({ role }) => {
     const roleData = {
-      'ECO CITIZEN1': {
-        image: '/assets/images/cards/ibu-eneng-eco-citizen.png'
+      "ECO CITIZEN1": {
+        image: "/assets/images/cards/ibu-eneng-eco-citizen.png",
       },
-      'ECO CITIZEN2': {
-        image: '/assets/images/cards/asep-eco-citizen.png'
+      "ECO CITIZEN2": {
+        image: "/assets/images/cards/asep-eco-citizen.png",
       },
-      'WASTE MANAGER': {
-        image: '/assets/images/cards/waste-manager.png'
+      "WASTE MANAGER": {
+        image: "/assets/images/cards/waste-manager.png",
       },
-      'GREEN GUARDIAN1': {
-        image: '/assets/images/cards/kang-raka-green-guardian.png'
+      "GREEN GUARDIAN1": {
+        image: "/assets/images/cards/kang-raka-green-guardian.png",
       },
-      'GREEN GUARDIAN2': {
-        image: '/assets/images/cards/teh-rani-green-guardian.png'
+      "GREEN GUARDIAN2": {
+        image: "/assets/images/cards/teh-rani-green-guardian.png",
       },
-      'WASTE VILLAIN1': {
-        image: '/assets/images/cards/yana-waste-villain.png'
+      "WASTE VILLAIN1": {
+        image: "/assets/images/cards/yana-waste-villain.png",
       },
-      'WASTE VILLAIN2': {
-        image: '/assets/images/cards/mang-karwa-waste-villain.png'
-      }
+      "WASTE VILLAIN2": {
+        image: "/assets/images/cards/mang-karwa-waste-villain.png",
+      },
     };
 
-    const data = roleData[role] || roleData['ECO CITIZEN1'];
+    const data = roleData[role] || roleData["ECO CITIZEN1"];
 
     return (
       <div className="flex justify-center">
         <div className="relative inline-block">
           {/* Card Background */}
-          <img 
+          <img
             src="/assets/images/backgrounds/card-bg.png"
             alt="Card Background"
             className="w-auto h-auto max-w-xs rounded-2xl"
           />
           {/* Role Image Overlay */}
-          <div className="absolute inset-0 flex items-center justify-center" style={{ transform: 'translate(-4px, -4px)' }}>
-            <img 
-              src={data.image} 
+          <div
+            className="absolute inset-0 flex items-center justify-center"
+            style={{ transform: "translate(-4px, -4px)" }}
+          >
+            <img
+              src={data.image}
               alt={role}
               className="w-auto h-auto max-w-[90%] max-h-[90%] object-contain rounded-2xl"
             />
@@ -86,11 +93,11 @@ const RoleExplanationRoomPage = () => {
     );
   };
 
-    const RoleDescription = () => {
+  const RoleDescription = () => {
     return (
-      <div className="w-full" style={{ marginLeft: '-5%' }}>
-        <img 
-          src="/assets/images/icons/moderator-role-desc.png" 
+      <div className="w-full" style={{ marginLeft: "-5%" }}>
+        <img
+          src="/assets/images/icons/moderator-role-desc.png"
           alt="Role Description"
           className="w-full h-auto rounded-xl mx-auto"
         />
@@ -100,9 +107,9 @@ const RoleExplanationRoomPage = () => {
 
   const RoleDescriptionSmall = () => {
     return (
-      <div className="w-full" style={{ marginLeft: '-5%' }}>
-        <img 
-          src="/assets/images/icons/moderator-role-desc.png" 
+      <div className="w-full" style={{ marginLeft: "-5%" }}>
+        <img
+          src="/assets/images/icons/moderator-role-desc.png"
           alt="Role Description"
           className="w-4/5 h-auto rounded-xl mx-auto"
         />
@@ -111,51 +118,32 @@ const RoleExplanationRoomPage = () => {
   };
 
   const roles = [
-    'ECO CITIZEN1',
-    'ECO CITIZEN2',
-    'WASTE MANAGER',
-    'GREEN GUARDIAN1',
-    'GREEN GUARDIAN2',
-    'WASTE VILLAIN1',
-    'WASTE VILLAIN2'
+    "ECO CITIZEN1",
+    "ECO CITIZEN2",
+    "WASTE MANAGER",
+    "GREEN GUARDIAN1",
+    "GREEN GUARDIAN2",
+    "WASTE VILLAIN1",
+    "WASTE VILLAIN2",
   ];
 
   // Filter out current player role from "other roles" list
-  const otherRoles = roles.filter(role => role !== currentPlayerRole);
+  const otherRoles = roles.filter((role) => role !== currentPlayerRole);
 
   return (
-    <div 
-      className="min-h-screen relative"
-      style={{
-        backgroundImage: 'url(/assets/images/backgrounds/roleexplanation-bg.png)',
-        backgroundSize: '100% 100%',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      }}
-    >
+    <Background>
       {/* Header */}
-      <header className="w-full relative">
-        <img
-          src="/assets/images/navbar/navbar.png"
-          alt="EcoSCha Navbar"
-          className="w-full h-auto object-cover shadow-lg"
-        />
-        {/* Hamburger Menu Button */}
-        <button className="absolute top-4 right-4 p-2 hover:bg-black/10 rounded-lg transition-colors duration-200 hover:scale-105 transform">
-          <img
-            src="/assets/images/icons/hamburgerbutton.png"
-            alt="Menu"
-            className="w-12 h-12 transition-transform duration-200 hover:brightness-110"
-          />
-        </button>
-      </header>
+      <Header />
 
       {/* Main Content */}
       <main className="relative z-10 max-w-7xl mx-auto px-4 py-8">
         {/* Phase Header */}
         <section className="mb-8">
           <div className="text-center">
-            <div className="text-white font-bold py-4 px-8 rounded-2xl shadow-lg inline-block" style={{ backgroundColor: '#F0BE01' }}>
+            <div
+              className="text-white font-bold py-4 px-8 rounded-2xl shadow-lg inline-block"
+              style={{ backgroundColor: "#F0BE01" }}
+            >
               <h1 className="text-2xl font-poppins">PERANMU ADALAH...</h1>
             </div>
           </div>
@@ -172,7 +160,7 @@ const RoleExplanationRoomPage = () => {
 
             {/* Right Column: Role Description - Takes 3 columns */}
             <div className="lg:col-span-3 space-y-10">
-              <RoleDescriptionSmall />      
+              <RoleDescriptionSmall />
               {/* Room Code and Generate Button */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                 {/* Room Code Display */}
@@ -189,13 +177,19 @@ const RoleExplanationRoomPage = () => {
                   <button
                     onClick={generateNewCode}
                     className="text-white font-bold py-4 px-8 rounded-2xl shadow-lg transition-all duration-300 transform hover:scale-105 font-poppins"
-                    style={{ 
-                      backgroundColor: '#982827'
+                    style={{
+                      backgroundColor: "#982827",
                     }}
-                    onMouseEnter={(e) => e.target.style.backgroundColor = '#7a1f1e'}
-                    onMouseLeave={(e) => e.target.style.backgroundColor = '#982827'}
+                    onMouseEnter={(e) =>
+                      (e.target.style.backgroundColor = "#7a1f1e")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.target.style.backgroundColor = "#982827")
+                    }
                   >
-                    MASUKKAN<br />KODE
+                    MASUKKAN
+                    <br />
+                    KODE
                   </button>
                 </div>
               </div>
@@ -204,14 +198,20 @@ const RoleExplanationRoomPage = () => {
 
           {/* Peran Lain Button */}
           <div className="text-center mb-8">
-            <div className="text-white font-bold py-4 px-8 rounded-2xl shadow-lg inline-block" style={{ backgroundColor: '#F0BE01' }}>
+            <div
+              className="text-white font-bold py-4 px-8 rounded-2xl shadow-lg inline-block"
+              style={{ backgroundColor: "#F0BE01" }}
+            >
               <h1 className="text-2xl font-poppins">PERAN LAIN</h1>
             </div>
           </div>
 
           {/* Other Role Cards (excluding current player role) */}
           {otherRoles.map((role, index) => (
-            <div key={index} className="grid grid-cols-1 lg:grid-cols-5 gap-4 mb-6">
+            <div
+              key={index}
+              className="grid grid-cols-1 lg:grid-cols-5 gap-4 mb-6"
+            >
               {/* Left Column: Role Card - Takes 2 columns */}
               <div className="lg:col-span-2">
                 <RoleCard role={role} />
@@ -230,13 +230,16 @@ const RoleExplanationRoomPage = () => {
           <div className="mt-6 text-center">
             <div className="bg-white rounded-xl p-4 shadow-lg inline-block">
               <p className="text-lg text-gray-800 font-poppins">
-                Kode baru: <span className="font-bold text-green-600">{generatedCode}</span>
+                Kode baru:{" "}
+                <span className="font-bold text-green-600">
+                  {generatedCode}
+                </span>
               </p>
             </div>
           </div>
         )}
       </main>
-    </div>
+    </Background>
   );
 };
 

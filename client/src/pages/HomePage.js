@@ -1,10 +1,14 @@
+import Header from "../components/common/Header";
+import Background from "../components/common/Background";
+
 const HomePage = () => {
   // Character roles data
   const characterRoles = [
     {
       id: 1,
       name: "pak harsa",
-      description: "Bertanggung jawab mengelola dan mengidentifikasi masalah sampah",
+      description:
+        "Bertanggung jawab mengelola dan mengidentifikasi masalah sampah",
       image: "/assets/images/cards/waste-manager.png",
       role: "WASTE MANAGER",
     },
@@ -18,28 +22,32 @@ const HomePage = () => {
     {
       id: 3,
       name: "asep",
-      description: "Warga peduli lingkungan yang aktif dalam aksi pro-lingkungan",
+      description:
+        "Warga peduli lingkungan yang aktif dalam aksi pro-lingkungan",
       image: "/assets/images/cards/asep-eco-citizen.png",
       role: "ECO CITIZEN",
     },
     {
       id: 4,
       name: "ibu eneng",
-      description: "Warga peduli lingkungan yang aktif dalam aksi pro-lingkungan",
+      description:
+        "Warga peduli lingkungan yang aktif dalam aksi pro-lingkungan",
       image: "/assets/images/cards/ibu-eneng-eco-citizen.png",
       role: "ECO CITIZEN",
     },
     {
       id: 5,
       name: "kang raka",
-      description: "Penjaga lingkungan yang melindungi ekosistem dari kerusakan",
+      description:
+        "Penjaga lingkungan yang melindungi ekosistem dari kerusakan",
       image: "/assets/images/cards/kang-raka-green-guardian.png",
       role: "GREEN GUARDIAN",
     },
     {
       id: 6,
       name: "teh rani",
-      description: "Penjaga lingkungan yang melindungi ekosistem dari kerusakan",
+      description:
+        "Penjaga lingkungan yang melindungi ekosistem dari kerusakan",
       image: "/assets/images/cards/teh-rani-green-guardian.png",
       role: "GREEN GUARDIAN",
     },
@@ -57,7 +65,7 @@ const HomePage = () => {
       image: "/assets/images/cards/mang-karwa-waste-villain.png",
       role: "WASTE VILLAIN",
     },
-  ]
+  ];
 
   const CharacterCard = ({ character }) => (
     <div className="transform hover:scale-105 transition-transform duration-300">
@@ -67,35 +75,11 @@ const HomePage = () => {
         className="w-full h-auto rounded-lg shadow-lg"
       />
     </div>
-  )
+  );
 
   return (
-    <div
-      className="min-h-screen relative"
-      style={{
-        backgroundImage: "url('./assets/images/backgrounds/homepage-bg.png')",
-        backgroundSize: "100% 100%",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        
-      }}
-    >
-      {/* Header with Custom Navbar */}
-      <header className="w-full relative">
-        <img
-          src="/assets/images/navbar/navbar.png"
-          alt="EcoSCha Navbar"
-          className="w-full h-auto object-cover shadow-lg"
-        />
-        {/* Hamburger Menu Button */}
-        <button className="absolute top-4 right-4 p-2 hover:bg-black/10 rounded-lg transition-colors duration-200 hover:scale-105 transform">
-          <img
-            src="/assets/images/icons/hamburgerbutton.png"
-            alt="Menu"
-            className="w-10 h-10 transition-transform duration-200 hover:brightness-110"
-          />
-        </button>
-      </header>
+    <Background>
+      <Header />
 
       {/* Main Content */}
       <main className="relative z-10 max-w-6xl mx-auto px-4 py-8 pb-24">
@@ -114,9 +98,9 @@ const HomePage = () => {
         <section className="mb-8">
           <div className="bg-white rounded-2xl shadow-lg p-6">
             <div className="text-center mb-6">
-                <button 
+              <button
                 className="text-white font-bold py-3 px-8 rounded-2xl shadow-lg transition-all duration-300 transform hover:scale-105 hover:brightness-110"
-                style={{ backgroundColor: '#F0BE01' }}
+                style={{ backgroundColor: "#F0BE01" }}
               >
                 DAFTAR PERAN
               </button>
@@ -130,7 +114,7 @@ const HomePage = () => {
                   <CharacterCard key={character.id} character={character} />
                 ))}
               </div>
-              
+
               {/* Second row - 4 characters */}
               <div className="grid grid-cols-4 gap-4 w-full">
                 {characterRoles.slice(4, 8).map((character) => (
@@ -145,9 +129,9 @@ const HomePage = () => {
         <section className="mb-8">
           <div className="bg-white rounded-2xl shadow-lg p-6">
             <div className="text-center mb-6">
-              <button 
+              <button
                 className="text-white font-bold py-3 px-8 rounded-2xl shadow-lg transition-all duration-300 transform hover:scale-105 hover:brightness-110"
-                style={{ backgroundColor: '#F0BE01' }}
+                style={{ backgroundColor: "#F0BE01" }}
               >
                 BERITA HARI INI
               </button>
@@ -162,8 +146,8 @@ const HomePage = () => {
           </div>
         </section>
       </main>
-    </div>
-  )
-}
+      </Background>
+  );
+};
 
-export default HomePage
+export default HomePage;
