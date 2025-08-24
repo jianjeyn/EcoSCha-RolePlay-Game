@@ -1,12 +1,21 @@
 import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate, useLocation } from "react-router-dom";
 import Header from "../components/common/Header";
 import Background from "../components/common/Background";
 
+
 const SignupPage = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  // Ambil roleId dari query param (hasil scan QR)
+  const params = new URLSearchParams(location.search);
+  const roleId = params.get("role") || "eco_citizen";
   const [formData, setFormData] = useState({
-    nama: "",
+    username: "",
     email: "",
     password: "",
+    roleId,
   });
 
   const handleInputChange = (e) => {
@@ -17,10 +26,21 @@ const SignupPage = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    // Handle form submission logic here
+    try {
+      const res = await axios.post("http://localhost:3000/api/auth/register", formData);
+      // Setelah register, login otomatis
+      const loginRes = await axios.post("http://localhost:3000/api/auth/login", {
+        email: formData.email,
+        password: formData.password,
+      });
+      localStorage.setItem("token", loginRes.data.token);
+      localStorage.setItem("userId", loginRes.data.user._id);
+      navigate("/role-explanation");
+    } catch (err) {
+      alert("Register gagal: " + (err.response?.data?.error || err.message));
+    }
   };
 
   return (
@@ -45,13 +65,13 @@ const SignupPage = () => {
           }}
         >
           <div className="space-y-4 w-full max-w-md mt-24">
-            {/* Name Input */}
+            {/* Username Input */}
             <div>
               <input
                 type="text"
-                name="nama"
+                name="username"
                 placeholder="Nama"
-                value={formData.nama}
+                value={formData.username}
                 onChange={handleInputChange}
                 className="w-full px-6 py-4 bg-gray-200 rounded-2xl border-none outline-none text-gray-700 placeholder-gray-500 text-lg focus:bg-gray-100 transition-colors duration-200"
               />

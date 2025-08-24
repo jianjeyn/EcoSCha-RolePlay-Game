@@ -1,11 +1,20 @@
 import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate, useLocation } from "react-router-dom";
 import Header from "../components/common/Header";
 import Background from "../components/common/Background";
 
+
 const LoginPage = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  // Ambil roleId dari query param (hasil scan QR)
+  const params = new URLSearchParams(location.search);
+  const roleId = params.get("role") || "eco_citizen";
   const [formData, setFormData] = useState({
     email: "",
     password: "",
+    roleId,
   });
 
   const handleInputChange = (e) => {
@@ -16,10 +25,17 @@ const LoginPage = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    // Handle form submission logic here
+    try {
+      const res = await axios.post("http://localhost:3000/api/auth/login", formData);
+      localStorage.setItem("token", res.data.token);
+      localStorage.setItem("userId", res.data.user._id);
+      // Redirect ke halaman penjelasan karakter
+      navigate("/role-explanation");
+    } catch (err) {
+      alert("Login gagal: " + (err.response?.data?.error || err.message));
+    }
   };
 
   return (

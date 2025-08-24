@@ -1,73 +1,32 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import Header from "../components/common/Header";
 import Background from "../components/common/Background";
 
 const LeaderboardStart = () => {
-  const [players, setPlayers] = useState([
-    {
-      id: 1,
-      name: "PLAYER 1",
-      role: "ECO CITIZEN",
-      points: 0,
-      isAlive: true,
-    },
-    {
-      id: 2,
-      name: "PLAYER 2",
-      role: "ECO CITIZEN",
-      points: 0,
-      isAlive: true,
-    },
-    {
-      id: 3,
-      name: "PLAYER 3",
-      role: "GREEN GUARDIAN",
-      points: 0,
-      isAlive: true,
-    },
-    {
-      id: 4,
-      name: "PLAYER 4",
-      role: "GREEN GUARDIAN",
-      points: 0,
-      isAlive: true,
-    },
-    {
-      id: 5,
-      name: "PLAYER 5",
-      role: "WASTE MANAGER",
-      points: 0,
-      isAlive: true,
-    },
-    {
-      id: 6,
-      name: "PLAYER 6",
-      role: "WASTE VILLAIN",
-      points: 0,
-      isAlive: true,
-    },
-    {
-      id: 7,
-      name: "PLAYER 7",
-      role: "WASTE VILLAIN",
-      points: 0,
-      isAlive: true,
-    },
-    {
-      id: 8,
-      name: "PLAYER 8",
-      role: "ECO CITIZEN",
-      points: 0,
-      isAlive: true,
-    },
-  ]);
+  const [players, setPlayers] = useState([]);
+
+  useEffect(() => {
+    // Fetch leaderboard data from backend (top users by gameScore)
+    axios.get("http://localhost:3000/api/users")
+      .then(res => {
+        // Sort users by gameScore (if available)
+        const sorted = res.data.sort((a, b) => (b.gameScore || 0) - (a.gameScore || 0));
+        setPlayers(sorted);
+      })
+      .catch(err => {
+        setPlayers([]);
+        console.error("Failed to fetch leaderboard:", err);
+      });
+  }, []);
 
   const getRoleColor = (role) => {
     const colors = {
-      "ECO CITIZEN": "#F0BE01",
-      "GREEN GUARDIAN": "#F0BE01",
-      "WASTE MANAGER": "#F0BE01",
-      "WASTE VILLAIN": "#F0BE01",
+      "eco_citizen": "#F0BE01",
+      "green_guardian": "#F0BE01",
+      "waste_manager": "#F0BE01",
+      "waste_villain": "#F0BE01",
+      "sustainability_guide": "#F0BE01"
     };
     return colors[role] || "#F0BE01";
   };
@@ -90,7 +49,7 @@ const LeaderboardStart = () => {
           {/* Players List */}
           <div className="space-y-4">
             {players.map((player, index) => (
-              <div key={player.id} className="flex items-center">
+              <div key={player._id || index} className="flex items-center">
                 {/* Rank Number */}
                 <div className="text-3xl font-bold text-dark-green w-12 text-center mr-4">
                   {index + 1}
@@ -98,9 +57,9 @@ const LeaderboardStart = () => {
                 {/* Player Info Bar */}
                 <div className="flex-1 text-white font-bold py-4 px-6 rounded-2xl shadow-lg flex items-center justify-between bg-dark-red">
                   <div className="flex items-center">
-                    <span className="text-white mr-2">{player.name}</span>
+                    <span className="text-white mr-2">{player.username}</span>
                     <span className="font-bold text-yellow">
-                      ({player.role})
+                      ({player.roleId})
                     </span>
                   </div>
 
@@ -116,7 +75,7 @@ const LeaderboardStart = () => {
                       </div>
                     )}
                     <span className="text-xl font-bold">
-                      {player.points} PTS
+                      {(player.gameScore || 0)} PTS
                     </span>
                   </div>
                 </div>

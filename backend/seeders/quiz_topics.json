@@ -1,0 +1,290 @@
+[
+  {
+    "_id": "topic_udara_1",
+    "topicId": 1,
+    "topicNumber": "1",
+    "topicName": "UDARA",
+    "topicTitle": "Kebakaran Hutan dan Lahan",
+    "cardImage": "/assets/images/topic-card/card1.png",
+    "route": "/question/FirstTopicPage",
+    "description": "Pencemaran udara akibat kebakaran hutan dan lahan, dampak lintas wilayah, serta upaya pencegahan",
+    "difficulty": "medium",
+    "questions": [
+      {
+        "questionId": "udara_1_q1",
+        "type": "multiple_choice",
+        "question": "Di wilayah Sumatera Selatan, pembukaan lahan dengan cara dibakar menyebabkan kabut asap pekat menyebar ke berbagai daerah, mengganggu penerbangan dan kesehatan masyarakat. Apa jenis pencemaran dan sumber utama dalam kasus tersebut?",
+        "options": [
+          "Pencemaran air – limbah rumah tangga",
+          "Pencemaran udara – pembakaran lahan",
+          "Pencemaran tanah – limbah kimia",
+          "Pencemaran udara – gas rumah kaca",
+          "Pencemaran air – limbah industri"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Pembakaran lahan menyebabkan asap yang mencemari udara dan menyebar ke wilayah lain, mengganggu penerbangan dan kesehatan.",
+        "points": 10
+      },
+      {
+        "questionId": "udara_1_q2",
+        "type": "true_false",
+        "question": "Kebakaran hutan hanya berdampak di wilayah yang terbakar dan tidak mempengaruhi wilayah lain.",
+        "correctAnswer": false,
+        "explanation": "Asap dari kebakaran bisa terbawa angin ke daerah yang sangat jauh dari sumber api. Ini menyebabkan pencemaran udara lintas wilayah dan berdampak luas, termasuk pada transportasi dan kesehatan.",
+        "points": 5
+      },
+      {
+        "questionId": "udara_1_q3",
+        "type": "essay",
+        "question": "Sebutkan 3 solusi sederhana yang dapat dilakukan masyarakat untuk mencegah kebakaran hutan dan jelaskan secara singkat!",
+        "sampleAnswer": "1) Praktik pembukaan lahan tanpa bakar - menggunakan cara manual atau mekanis; 2) Reboisasi - menanam kembali pohon di lahan kritis; 3) Edukasi masyarakat - meningkatkan kesadaran tentang bahaya membakar lahan sembarangan.",
+        "points": 15
+      }
+    ],
+    "totalQuestions": 3,
+    "totalPoints": 30,
+    "isActive": true,
+    "createdAt": {"$date": "2025-01-27T10:00:00.000Z"},
+    "updatedAt": {"$date": "2025-01-27T10:00:00.000Z"}
+  },
+  {
+    "_id": "topic_hutan_2",
+    "topicId": 2,
+    "topicNumber": "2", 
+    "topicName": "HUTAN",
+    "topicTitle": "Alih Fungsi Lahan dan Kerusakan Ekosistem",
+    "cardImage": "/assets/images/topic-card/card2.png",
+    "route": "/question/SecondTopicPage",
+    "description": "Dampak alih fungsi lahan terhadap ekosistem, keanekaragaman hayati, dan bencana alam",
+    "difficulty": "hard",
+    "questions": [
+      {
+        "questionId": "hutan_2_q1",
+        "type": "multiple_choice",
+        "question": "Di beberapa daerah dataran tinggi Indonesia, seperti Pegunungan Dieng, konversi hutan menjadi lahan pertanian menyebabkan terganggunya habitat satwa liar. Selain itu, tanah menjadi mudah longsor dan aliran air tanah berkurang drastis. Permasalahan tersebut termasuk dalam jenis...",
+        "options": [
+          "Perubahan iklim akibat gas rumah kaca",
+          "Krisis energi dan pemborosan lahan",
+          "Alih fungsi lahan dan kerusakan ekosistem",
+          "Pencemaran udara dari aktivitas pertanian",
+          "Pencemaran tanah oleh pestisida"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Konversi hutan menjadi lahan pertanian menyebabkan kerusakan ekosistem, hilangnya habitat, dan masalah lingkungan lainnya.",
+        "points": 10
+      },
+      {
+        "questionId": "hutan_2_q2", 
+        "type": "true_false",
+        "question": "Alih fungsi lahan berdampak pada hilangnya keanekaragaman hayati di daerah tersebut.",
+        "correctAnswer": true,
+        "explanation": "Pembukaan lahan menghilangkan habitat alami, sehingga populasi satwa dan tumbuhan menurun, yang berarti keanekaragaman hayati berkurang.",
+        "points": 5
+      },
+      {
+        "questionId": "hutan_2_q3",
+        "type": "essay",
+        "question": "Jelaskan hubungan antara deforestasi dengan peningkatan risiko bencana alam!",
+        "sampleAnswer": "Deforestasi meningkatkan risiko bencana karena: 1) Hilangnya akar pohon yang menahan tanah menyebabkan longsor; 2) Berkurangnya penyerapan air hujan meningkatkan risiko banjir; 3) Hilangnya tutupan hutan mempercepat erosi tanah; 4) Gangguan siklus air lokal menyebabkan kekeringan.",
+        "points": 15
+      }
+    ],
+    "totalQuestions": 3,
+    "totalPoints": 30,
+    "isActive": true,
+    "createdAt": {"$date": "2025-01-27T10:00:00.000Z"},
+    "updatedAt": {"$date": "2025-01-27T10:00:00.000Z"}
+  },
+  {
+    "_id": "topic_air_3",
+    "topicId": 3,
+    "topicNumber": "3",
+    "topicName": "AIR", 
+    "topicTitle": "Krisis Air Bersih dan Pencemaran Air",
+    "cardImage": "/assets/images/topic-card/card3.png",
+    "route": "/question/ThirdTopicPage",
+    "description": "Krisis air bersih, pencemaran sumber air, dan dampak terhadap kesehatan masyarakat",
+    "difficulty": "medium",
+    "questions": [
+      {
+        "questionId": "air_3_q1",
+        "type": "multiple_choice",
+        "question": "Warga Desa Tirtasari mengandalkan air sungai yang mulai keruh dan berbau menyengat. Hasil uji laboratorium menunjukkan kadar BOD melebihi ambang batas dan kandungan fosfat tinggi. Investigasi menemukan limbah kotoran peternakan dan deterjen. Jenis pencemaran yang terjadi adalah...",
+        "options": [
+          "Pencemaran udara akibat aktivitas peternakan",
+          "Pencemaran air akibat limbah organik dan anorganik", 
+          "Pencemaran tanah akibat kotoran hewan",
+          "Pencemaran air hanya akibat limbah deterjen",
+          "Pencemaran air hanya akibat limbah organik"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Pencemaran air disebabkan oleh kombinasi limbah organik (kotoran ternak) dan anorganik (deterjen/fosfat).",
+        "points": 10
+      },
+      {
+        "questionId": "air_3_q2",
+        "type": "true_false", 
+        "question": "Krisis air bersih berdampak langsung terhadap kesehatan masyarakat.",
+        "correctAnswer": true,
+        "explanation": "Tanpa akses air bersih, masyarakat terpaksa menggunakan air tercemar yang membawa penyakit. Ini berbahaya terutama bagi anak-anak dan lansia.",
+        "points": 5
+      },
+      {
+        "questionId": "air_3_q3",
+        "type": "essay",
+        "question": "Sebutkan 4 cara sederhana untuk menghemat air di rumah dan jelaskan dampaknya terhadap lingkungan!",
+        "sampleAnswer": "1) Menutup keran saat menyikat gigi - menghemat 6-8 liter per menit; 2) Mandi dengan shower daripada bathtub - mengurangi konsumsi hingga 50%; 3) Menampung air hujan - mengurangi ketergantungan air tanah; 4) Memperbaiki keran bocor - mencegah pemborosan hingga 1000 liter per bulan.",
+        "points": 15
+      }
+    ],
+    "totalQuestions": 3,
+    "totalPoints": 30,
+    "isActive": true,
+    "createdAt": {"$date": "2025-01-27T10:00:00.000Z"},
+    "updatedAt": {"$date": "2025-01-27T10:00:00.000Z"}
+  },
+  {
+    "_id": "topic_sampah_4",
+    "topicId": 4,
+    "topicNumber": "4",
+    "topicName": "SAMPAH",
+    "topicTitle": "Sampah Plastik dan Polusi Laut",
+    "cardImage": "/assets/images/topic-card/card4.png", 
+    "route": "/question/FourthTopicPage",
+    "description": "Pencemaran lingkungan akibat sampah plastik, dampak pada hewan laut dan ekosistem",
+    "difficulty": "easy",
+    "questions": [
+      {
+        "questionId": "sampah_4_q1",
+        "type": "multiple_choice",
+        "question": "Wilayah pesisir utara Jakarta kerap ditemukan tumpukan sampah plastik yang terbawa arus laut. Banyak satwa laut seperti penyu dan ikan kecil yang mati akibat menelan plastik tersebut. Masalah utama yang ditunjukkan dalam kasus ini adalah...",
+        "options": [
+          "Perubahan iklim dan cuaca ekstrim",
+          "Krisis air bersih dan sanitasi",
+          "Alih fungsi lahan pertanian", 
+          "Limbah kimia dari pertanian",
+          "Sampah plastik dan polusi laut"
+        ],
+        "correctAnswer": 4,
+        "explanation": "Kasus menunjukkan pencemaran laut oleh sampah plastik yang berdampak pada kematian satwa laut.",
+        "points": 10
+      },
+      {
+        "questionId": "sampah_4_q2",
+        "type": "true_false",
+        "question": "Sampah plastik tidak membahayakan hewan laut karena dapat terurai dengan cepat.",
+        "correctAnswer": false,
+        "explanation": "Plastik sangat sulit terurai secara alami dan bisa bertahan ratusan tahun di lingkungan. Hewan laut bisa salah makan plastik, yang menyebabkan kematian atau gangguan biologis.",
+        "points": 5
+      },
+      {
+        "questionId": "sampah_4_q3",
+        "type": "essay",
+        "question": "Jelaskan 3 prinsip 3R (Reduce, Reuse, Recycle) dan berikan contoh penerapannya dalam kehidupan sehari-hari!",
+        "sampleAnswer": "1) Reduce: mengurangi penggunaan plastik, contoh: membawa tas belanja sendiri; 2) Reuse: menggunakan kembali barang plastik, contoh: menggunakan botol bekas untuk pot tanaman; 3) Recycle: mendaur ulang sampah plastik, contoh: memilah sampah untuk didaur ulang.",
+        "points": 15
+      }
+    ],
+    "totalQuestions": 3,
+    "totalPoints": 30,
+    "isActive": true,
+    "createdAt": {"$date": "2025-01-27T10:00:00.000Z"},
+    "updatedAt": {"$date": "2025-01-27T10:00:00.000Z"}
+  },
+  {
+    "_id": "topic_udara_5", 
+    "topicId": 5,
+    "topicNumber": "5",
+    "topicName": "UDARA",
+    "topicTitle": "Limbah Industri dan Pencemaran Udara",
+    "cardImage": "/assets/images/topic-card/card5.png",
+    "route": "/question/FifthTopicPage", 
+    "description": "Pencemaran udara dari aktivitas industri dan dampaknya terhadap kesehatan masyarakat",
+    "difficulty": "medium",
+    "questions": [
+      {
+        "questionId": "udara_5_q1",
+        "type": "multiple_choice",
+        "question": "Di kota besar, penggunaan kendaraan bermotor semakin meningkat. Akibatnya, langit tampak lebih keruh, udara terasa panas, dan banyak orang terkena ISPA. Berdasarkan analisis, dua faktor utama dalam kasus tersebut adalah...",
+        "options": [
+          "Deforestasi dan pencemaran tanah",
+          "Sampah plastik dan pencemaran air", 
+          "Emisi kendaraan dan pencemaran udara",
+          "Perubahan iklim dan pencemaran suara",
+          "Limbah rumah tangga dan pencemaran udara"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Emisi dari kendaraan bermotor menyebabkan pencemaran udara yang terlihat dari langit keruh dan masalah kesehatan pernapasan.",
+        "points": 10
+      },
+      {
+        "questionId": "udara_5_q2",
+        "type": "true_false",
+        "question": "Peningkatan suhu rata-rata di Indonesia merupakan tanda terjadinya perubahan iklim.",
+        "correctAnswer": true,
+        "explanation": "Perubahan iklim ditandai dengan tren kenaikan suhu global akibat akumulasi gas rumah kaca di atmosfer.",
+        "points": 5
+      },
+      {
+        "questionId": "udara_5_q3",
+        "type": "essay",
+        "question": "Sebutkan 5 aksi nyata yang dapat dilakukan individu untuk mengurangi emisi gas rumah kaca!",
+        "sampleAnswer": "1) Menggunakan transportasi umum atau sepeda; 2) Menghemat listrik dengan lampu LED; 3) Mengurangi konsumsi daging; 4) Menanam pohon di sekitar rumah; 5) Mengurangi penggunaan plastik sekali pakai.",
+        "points": 15
+      }
+    ],
+    "totalQuestions": 3,
+    "totalPoints": 30,
+    "isActive": true,
+    "createdAt": {"$date": "2025-01-27T10:00:00.000Z"},
+    "updatedAt": {"$date": "2025-01-27T10:00:00.000Z"}
+  },
+  {
+    "_id": "topic_udara_6",
+    "topicId": 6,
+    "topicNumber": "6",
+    "topicName": "UDARA",
+    "topicTitle": "Perubahan Iklim Global",
+    "cardImage": "/assets/images/topic-card/card6.png",
+    "route": "/question/SixthTopicPage",
+    "description": "Perubahan iklim global, pemanasan global, dan upaya mitigasi",
+    "difficulty": "hard", 
+    "questions": [
+      {
+        "questionId": "udara_6_q1",
+        "type": "multiple_choice",
+        "question": "Di beberapa kota besar Indonesia, peningkatan penggunaan kendaraan bermotor mengakibatkan tingginya emisi CO₂. Gas ini terperangkap di atmosfer, menyebabkan suhu bumi meningkat secara perlahan. Jenis pencemaran yang menyebabkan fenomena tersebut adalah...",
+        "options": [
+          "Pencemaran air",
+          "Pencemaran tanah",
+          "Pencemaran udara", 
+          "Pencemaran suara",
+          "Pencemaran termal"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Emisi CO₂ dari kendaraan bermotor menyebabkan pencemaran udara dan berkontribusi pada pemanasan global.",
+        "points": 10
+      },
+      {
+        "questionId": "udara_6_q2",
+        "type": "true_false",
+        "question": "Perubahan iklim tidak ada hubungannya dengan aktivitas manusia karena merupakan proses alami bumi.",
+        "correctAnswer": false,
+        "explanation": "Perubahan iklim saat ini sangat dipengaruhi oleh aktivitas manusia, seperti pembakaran bahan bakar fosil, deforestasi, dan emisi gas rumah kaca yang menyebabkan pemanasan global.",
+        "points": 5
+      },
+      {
+        "questionId": "udara_6_q3",
+        "type": "essay",
+        "question": "Jelaskan dampak pemanasan global terhadap lingkungan dan berikan 3 solusi konkret untuk mengatasinya!",
+        "sampleAnswer": "Dampak: 1) Pencairan es kutub dan naiknya permukaan laut; 2) Cuaca ekstrem dan bencana alam; 3) Kerusakan ekosistem dan kepunahan spesies. Solusi: 1) Transisi ke energi terbarukan; 2) Reboisasi dan konservasi hutan; 3) Efisiensi energi dan transportasi berkelanjutan.",
+        "points": 15
+      }
+    ],
+    "totalQuestions": 3,
+    "totalPoints": 30,
+    "isActive": true,
+    "createdAt": {"$date": "2025-01-27T10:00:00.000Z"},
+    "updatedAt": {"$date": "2025-01-27T10:00:00.000Z"}
+  }
+]

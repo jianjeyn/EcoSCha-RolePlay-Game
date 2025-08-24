@@ -1,0 +1,148 @@
+[
+  {
+    "_id": "material_video_1",
+    "type": "video",
+    "title": "Isu Lingkungan Indonesia Terkini",
+    "videoUrl": "https://www.youtube.com/watch?v=1BpsfWCNqlE",
+    "embedUrl": "https://www.youtube.com/embed/1BpsfWCNqlE",
+    "thumbnailUrl": "/assets/images/backgrounds/video-thumbnail.png",
+    "duration": "15:30",
+    "description": "Video komprehensif tentang berbagai isu lingkungan yang sedang terjadi di Indonesia, mulai dari pencemaran air, kebakaran hutan, hingga krisis sampah plastik.",
+    "summary": "Video ini membahas dampak pencemaran lingkungan terhadap kehidupan masyarakat Indonesia, dengan fokus pada solusi praktis yang bisa diterapkan sehari-hari.",
+    "keyPoints": [
+      "Pencemaran air dan dampaknya terhadap kesehatan masyarakat",
+      "Krisis sampah plastik di perkotaan dan pesisir Indonesia", 
+      "Kebakaran hutan dan dampak lintas wilayah",
+      "Solusi sederhana yang bisa diterapkan sehari-hari",
+      "Peran masyarakat dalam menjaga lingkungan"
+    ],
+    "category": "environmental_issues",
+    "tags": ["pencemaran", "lingkungan", "indonesia", "edukasi", "isu_lingkungan"],
+    "sourceCredit": {
+      "platform": "YouTube",
+      "originalUrl": "https://www.youtube.com/watch?v=1BpsfWCNqlE",
+      "publishedDate": "2024-12-15"
+    },
+    "watchTime": "16 menit",
+    "isActive": true,
+    "createdAt": {"$date": "2025-01-27T10:00:00.000Z"},
+    "updatedAt": {"$date": "2025-01-27T10:00:00.000Z"}
+  },
+  {
+    "_id": "material_video_2",
+    "type": "video", 
+    "title": "Diskusi Mendalam: Solusi Krisis Lingkungan",
+    "videoUrl": "https://www.youtube.com/watch?v=AyvgDUled7w&t=1780s",
+    "embedUrl": "https://www.youtube.com/embed/AyvgDUled7w?start=1780",
+    "thumbnailUrl": "/assets/images/backgrounds/video-thumbnail-2.png",
+    "duration": "25:45",
+    "startTime": "29:40",
+    "description": "Diskusi panel dengan para ahli lingkungan tentang strategi mengatasi krisis lingkungan di Indonesia. Video dimulai dari menit ke-29:40 dengan fokus pada solusi konkret.",
+    "summary": "Para pakar membahas pendekatan holistik dalam mengatasi masalah lingkungan, termasuk peran masyarakat, pemerintah, dan sektor swasta dalam menciptakan solusi berkelanjutan.",
+    "keyPoints": [
+      "Pendekatan holistik dalam penyelesaian masalah lingkungan",
+      "Kolaborasi antara pemerintah, swasta, dan masyarakat",
+      "Teknologi ramah lingkungan untuk solusi berkelanjutan",
+      "Kebijakan lingkungan yang efektif dan implementasinya",
+      "Peran generasi muda dalam aksi perubahan iklim"
+    ],
+    "category": "environmental_solutions",
+    "tags": ["diskusi", "ahli_lingkungan", "solusi", "krisis_iklim", "kebijakan_lingkungan"],
+    "sourceCredit": {
+      "platform": "YouTube", 
+      "originalUrl": "https://www.youtube.com/watch?v=AyvgDUled7w&t=1780s",
+      "publishedDate": "2024-11-20"
+    },
+    "watchTime": "26 menit (mulai dari 29:40)",
+    "isActive": true,
+    "createdAt": {"$date": "2025-01-27T10:00:00.000Z"},
+    "updatedAt": {"$date": "2025-01-27T10:00:00.000Z"}
+  },
+  {
+    "_id": "material_article_1",
+    "type": "article",
+    "title": "Ubah Sampah Jadi Energi Alternatif, Ratusan Warga Ikuti Aksi Bersih Pantai Telukawur",
+    "originalUrl": "https://joglojateng.com/2025/07/03/ubah-sampah-jadi-energi-alternatif-ratusan-warga-ikuti-aksi-bersih-pantai-telukawur/2/",
+    "thumbnailUrl": "/assets/images/news/telukawur-cleanup.jpg",
+    "publishedDate": {"$date": "2025-07-03T00:00:00.000Z"},
+    "author": "Tim JogloJateng",
+    "summary": "Ratusan warga Telukawur berpartisipasi dalam aksi bersih pantai yang inovatif. Mereka tidak hanya membersihkan sampah, tetapi juga belajar cara mengubah sampah plastik menjadi sumber energi alternatif melalui teknologi sederhana.",
+    "content": "Aksi bersih pantai di Telukawur kali ini berbeda dari biasanya. Ratusan warga yang terlibat tidak hanya mengumpulkan sampah, tetapi juga mendapat edukasi tentang pengolahan sampah menjadi energi. Melalui teknologi pirolisis sederhana, sampah plastik dapat diubah menjadi bahan bakar alternatif. Kegiatan ini menunjukkan bahwa aksi lingkungan bisa sekaligus memberikan manfaat ekonomi bagi masyarakat.",
+    "keyPoints": [
+      "Ratusan warga ikut aksi bersih pantai Telukawur",
+      "Edukasi teknologi waste-to-energy untuk masyarakat",
+      "Pengolahan sampah plastik menjadi bahan bakar alternatif",
+      "Kombinasi aksi lingkungan dengan manfaat ekonomi"
+    ],
+    "category": "waste_management",
+    "region": "Jawa Tengah",
+    "tags": ["sampah", "energi_alternatif", "aksi_bersih", "telukawur", "waste_to_energy"],
+    "sourceCredit": {
+      "publication": "JogloJateng",
+      "originalUrl": "https://joglojateng.com/2025/07/03/ubah-sampah-jadi-energi-alternatif-ratusan-warga-ikuti-aksi-bersih-pantai-telukawur/2/",
+      "scrapedDate": {"$date": "2025-01-27T10:00:00.000Z"}
+    },
+    "readTime": "3 menit",
+    "isActive": true,
+    "createdAt": {"$date": "2025-01-27T10:00:00.000Z"},
+    "updatedAt": {"$date": "2025-01-27T10:00:00.000Z"}
+  },
+  {
+    "_id": "material_article_2", 
+    "type": "article",
+    "title": "Pertamina Hijaukan Hutan Lombok, Upaya Pelestarian Lingkungan & Ekonomi",
+    "originalUrl": "https://news.detik.com/berita/d-8004004/pertamina-hijaukan-hutan-lombok-upaya-pelestarian-lingkungan-ekonomi",
+    "thumbnailUrl": "/assets/images/news/lombok-reforestation.jpg",
+    "publishedDate": {"$date": "2025-07-03T00:00:00.000Z"},
+    "author": "Detik News",
+    "summary": "Pertamina meluncurkan program penghijauan hutan di Lombok sebagai bagian dari komitmen pelestarian lingkungan. Program ini tidak hanya fokus pada reboisasi, tetapi juga pemberdayaan ekonomi masyarakat sekitar hutan.",
+    "content": "PT Pertamina melakukan program penghijauan hutan di Lombok dengan menanam ribuan bibit pohon. Program ini melibatkan masyarakat lokal dalam pemeliharaan dan pengembangan hutan. Selain aspek lingkungan, program ini juga memberikan dampak ekonomi positif melalui pengembangan ekowisata dan produk hutan berkelanjutan. Inisiatif ini menunjukkan bahwa pelestarian lingkungan dan pembangunan ekonomi bisa berjalan seiring.",
+    "keyPoints": [
+      "Pertamina lakukan program penghijauan hutan Lombok",
+      "Ribuan bibit pohon ditanam dengan melibatkan masyarakat",
+      "Pengembangan ekowisata sebagai dampak ekonomi positif", 
+      "Model pelestarian lingkungan yang berkelanjutan"
+    ],
+    "category": "reforestation",
+    "region": "Nusa Tenggara Barat",
+    "tags": ["pertamina", "penghijauan", "lombok", "reboisasi", "ekowisata"],
+    "sourceCredit": {
+      "publication": "Detik News",
+      "originalUrl": "https://news.detik.com/berita/d-8004004/pertamina-hijaukan-hutan-lombok-upaya-pelestarian-lingkungan-ekonomi",
+      "scrapedDate": {"$date": "2025-01-27T10:00:00.000Z"}
+    },
+    "readTime": "2 menit",
+    "isActive": true,
+    "createdAt": {"$date": "2025-01-27T10:00:00.000Z"},
+    "updatedAt": {"$date": "2025-01-27T10:00:00.000Z"}
+  },
+  {
+    "_id": "material_article_3",
+    "type": "article",
+    "title": "Ratusan Ton Sampah Banjir di Mataram, Bau Busuk Sepanjang Jalan",
+    "originalUrl": "https://www.detik.com/bali/nusra/d-8000666/ratusan-ton-sampah-banjir-di-mataram-bau-busuk-sepanjang-jalan",
+    "thumbnailUrl": "/assets/images/news/mataram-waste-crisis.jpg", 
+    "publishedDate": {"$date": "2025-07-01T00:00:00.000Z"},
+    "author": "Detik Bali",
+    "summary": "Krisis sampah melanda Mataram dengan ratusan ton sampah menumpuk di jalanan. Kondisi ini menyebabkan bau tidak sedap dan mengganggu aktivitas warga. Situasi ini menjadi peringatan serius tentang pentingnya pengelolaan sampah yang efektif.",
+    "content": "Kota Mataram dilanda krisis sampah serius dengan ratusan ton sampah menumpuk di berbagai titik. Kondisi ini dipicu oleh gangguan pada sistem pengangkutan sampah dan kapasitas TPA yang sudah overload. Warga mengeluh bau busuk yang menyebar sepanjang jalan utama. Pemerintah daerah sedang mencari solusi darurat termasuk mengaktifkan kembali TPA sementara dan menambah armada pengangkut sampah.",
+    "keyPoints": [
+      "Ratusan ton sampah menumpuk di jalanan Mataram",
+      "Bau busuk mengganggu aktivitas warga",
+      "Sistem pengangkutan sampah mengalami gangguan",
+      "Pemerintah cari solusi darurat atasi krisis sampah"
+    ],
+    "category": "waste_crisis",
+    "region": "Nusa Tenggara Barat", 
+    "tags": ["sampah", "mataram", "krisis", "bau_busuk", "pengelolaan_sampah"],
+    "sourceCredit": {
+      "publication": "Detik Bali",
+      "originalUrl": "https://www.detik.com/bali/nusra/d-8000666/ratusan-ton-sampah-banjir-di-mataram-bau-busuk-sepanjang-jalan",
+      "scrapedDate": {"$date": "2025-01-27T10:00:00.000Z"}
+    },
+    "readTime": "2 menit",
+    "isActive": true,
+    "createdAt": {"$date": "2025-01-27T10:00:00.000Z"},
+    "updatedAt": {"$date": "2025-01-27T10:00:00.000Z"}
+  }
+]

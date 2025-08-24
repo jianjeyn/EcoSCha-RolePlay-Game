@@ -1,79 +1,41 @@
+
+import React, { useEffect, useState } from "react";
 import Header from "../components/common/Header";
 import Background from "../components/common/Background";
+import Modal from "../components/common/Modal";
+import axios from "axios";
 
 const HomePage = () => {
-  // Character roles data
-  const characterRoles = [
-    {
-      id: 1,
-      name: "pak harsa",
-      description:
-        "Bertanggung jawab mengelola dan mengidentifikasi masalah sampah",
-      image: "/assets/images/cards/waste-manager.png",
-      role: "WASTE MANAGER",
-    },
-    {
-      id: 2,
-      name: "raka",
-      description: "Pemandu yang mengarahkan diskusi dan solusi berkelanjutan",
-      image: "/assets/images/cards/sustainability-guide.png",
-      role: "SUSTAINABILITY GUIDE",
-    },
-    {
-      id: 3,
-      name: "asep",
-      description:
-        "Warga peduli lingkungan yang aktif dalam aksi pro-lingkungan",
-      image: "/assets/images/cards/asep-eco-citizen.png",
-      role: "ECO CITIZEN",
-    },
-    {
-      id: 4,
-      name: "ibu eneng",
-      description:
-        "Warga peduli lingkungan yang aktif dalam aksi pro-lingkungan",
-      image: "/assets/images/cards/ibu-eneng-eco-citizen.png",
-      role: "ECO CITIZEN",
-    },
-    {
-      id: 5,
-      name: "kang raka",
-      description:
-        "Penjaga lingkungan yang melindungi ekosistem dari kerusakan",
-      image: "/assets/images/cards/kang-raka-green-guardian.png",
-      role: "GREEN GUARDIAN",
-    },
-    {
-      id: 6,
-      name: "teh rani",
-      description:
-        "Penjaga lingkungan yang melindungi ekosistem dari kerusakan",
-      image: "/assets/images/cards/teh-rani-green-guardian.png",
-      role: "GREEN GUARDIAN",
-    },
-    {
-      id: 7,
-      name: "yana",
-      description: "Karakter yang merusak lingkungan secara diam-diam",
-      image: "/assets/images/cards/yana-waste-villain.png",
-      role: "WASTE VILLAIN",
-    },
-    {
-      id: 8,
-      name: "mang karwa",
-      description: "Karakter yang merusak lingkungan secara diam-diam",
-      image: "/assets/images/cards/mang-karwa-waste-villain.png",
-      role: "WASTE VILLAIN",
-    },
-  ];
+  const [characterRoles, setCharacterRoles] = useState([]);
+  const [news, setNews] = useState([]);
+  const [selectedCharacter, setSelectedCharacter] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+
+  useEffect(() => {
+    axios.get("http://localhost:3000/api/characters")
+      .then(res => setCharacterRoles(res.data));
+    axios.get("http://localhost:3000/api/learning-materials/latest")
+      .then(res => setNews(res.data));
+  }, []);
+
+  const handleCharacterClick = (character) => {
+    setSelectedCharacter(character);
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+    setSelectedCharacter(null);
+  };
 
   const CharacterCard = ({ character }) => (
-    <div className="transform hover:scale-105 transition-transform duration-300">
+    <div className="transform hover:scale-105 transition-transform duration-300 cursor-pointer" onClick={() => handleCharacterClick(character)}>
       <img
-        src={character.image || "/placeholder.svg"}
-        alt={character.name}
+        src={character.cardImage || character.image || "/placeholder.svg"}
+        alt={character.displayName || character.name}
         className="w-full h-auto rounded-lg shadow-lg"
       />
+      <div className="mt-2 text-center font-bold text-gray-700">{character.displayName || character.name}</div>
     </div>
   );
 
@@ -108,17 +70,14 @@ const HomePage = () => {
 
             {/* Character roles in 2 rows of 4 */}
             <div className="space-y-4">
-              {/* First row - 4 characters */}
               <div className="grid grid-cols-4 gap-4 w-full">
                 {characterRoles.slice(0, 4).map((character) => (
-                  <CharacterCard key={character.id} character={character} />
+                  <CharacterCard key={character._id || character.id} character={character} />
                 ))}
               </div>
-
-              {/* Second row - 4 characters */}
               <div className="grid grid-cols-4 gap-4 w-full">
                 {characterRoles.slice(4, 8).map((character) => (
-                  <CharacterCard key={character.id} character={character} />
+                  <CharacterCard key={character._id || character.id} character={character} />
                 ))}
               </div>
             </div>
@@ -136,15 +95,52 @@ const HomePage = () => {
                 BERITA HARI INI
               </button>
             </div>
-
-            <div className="h-64 flex items-center justify-center text-gray-400">
-              <div className="text-center">
-                <div className="text-4xl mb-4">📰</div>
-                <p>Berita akan ditampilkan di sini</p>
-              </div>
-            </div>
+            <ul className="divide-y divide-gray-200">
+              {news.length === 0 && (
+                <li className="py-6 text-center text-gray-400">Belum ada berita/video terbaru</li>
+              )}
+              {news.map((item, idx) => (
+                <li key={item._id || idx} className="py-4 flex items-center justify-between">
+                  <span className="font-semibold text-gray-800">{item.title}</span>
+                  <a
+                    href={item.type === "article" ? item.originalUrl : item.videoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="ml-4 px-4 py-2 bg-blue-600 text-white rounded-lg font-bold hover:bg-blue-700 transition"
+                  >
+                    Baca/Watch
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
+      {/* Character Modal */}
+      <Modal isOpen={showModal} onClose={closeModal} title={selectedCharacter?.displayName || selectedCharacter?.name} size="md">
+        {selectedCharacter && (
+          <div className="space-y-4">
+            {selectedCharacter.cardImage && (
+              <img src={selectedCharacter.cardImage} alt={selectedCharacter.displayName} className="w-full max-w-xs mx-auto rounded-xl" />
+            )}
+            <div>
+              <strong>Role:</strong> {selectedCharacter.roleType}
+            </div>
+            <div>
+              <strong>Deskripsi:</strong> {selectedCharacter.description}
+            </div>
+            {selectedCharacter.abilities && selectedCharacter.abilities.length > 0 && (
+              <div>
+                <strong>Abilities:</strong>
+                <ul className="list-disc list-inside mt-2">
+                  {selectedCharacter.abilities.map((ability, idx) => (
+                    <li key={idx}>{ability.name}: {ability.description}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        )}
+      </Modal>
       </main>
       </Background>
   );

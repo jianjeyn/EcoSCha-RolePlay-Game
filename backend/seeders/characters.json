@@ -1,0 +1,98 @@
+[
+  {
+    "_id": "eco_citizen_1",
+    "name": "Asep",
+    "displayName": "ECO CITIZEN2",
+    "roleType": "Eco Citizen",
+    "cardImage": "/assets/images/cards/asep-eco-citizen.png",
+    "description": "Di sebuah sudut Desa Dayeuhmanggung, Asep tinggal bersama keluarganya yang sederhana. Ia seorang pemuda yang sehari-harinya bekerja sebagai tukang ojek dan kadang membantu pamannya di kebun. Baginya, alam adalah bagian dari kehidupan yang tidak bisa dilepaskan dari \"adat lembur\" nilai-nilai desa yang diajarkan turun-temurun.\n\nNamun, belakangan ini, Asep mulai merasa ada yang berubah. Mata air tempat ia biasa mengambil air tampak makin kering, dan sampah plastik mulai berserakan di kebun belakang rumah. Ia mendengar cerita soal karuksakan lingkungan (kerusakan lingkungan), tapi belum memahami sepenuhnya. Ia hanya tahu satu hal: \"Mun alam rusak, urang lembur nu kahiji ngaraosna.\" (Kalau alam rusak, orang desa yang paling pertama merasakan dampaknya.)\n\nSebagai Eco Citizen, Asep adalah simbol masyarakat awam yang masih dalam tahap sadar lingkungan. Ia tidak memiliki kemampuan khusus, tapi pengamatannya bisa menjadi petunjuk bagi pemain lain.",
+    "ability": "Pengamatannya bisa menjadi petunjuk bagi pemain lain",
+    "isActive": true,
+    "createdAt": {"$date": "2025-01-27T10:00:00.000Z"},
+    "updatedAt": {"$date": "2025-01-27T10:00:00.000Z"}
+  },
+  {
+    "_id": "eco_citizen_2", 
+    "name": "Ibu Eneng",
+    "displayName": "ECO CITIZEN1",
+    "roleType": "Eco Citizen",
+    "cardImage": "/assets/images/cards/ibu-eneng-eco-citizen.png",
+    "description": "Ibu Eneng dikenal sebagai sosok ceria yang suka ngobrol dengan siapa saja di pasar. Ia bukan tokoh penting, bukan juga aktivis lingkungan. Tapi ia tahu betul bagaimana perubahan musim memengaruhi dagangannya. Dulu, ia bisa menjual sayur-sayuran segar dari petani lokal. Sekarang, banyak sayur yang rusak sebelum sampai ke pasar karena cuaca ekstrem.\n\nIbu Eneng percaya pada kearifan kolot baheula (kearifan leluhur), seperti menanam pohon di pekarangan dan tidak membuang sampah sembarangan. Tapi di tengah gempuran limbah, polusi, dan alih fungsi lahan, kebiasaan itu makin sulit diterapkan. Ia jadi cermin dari warga yang masih memegang nilai-nilai budaya lokal, namun perlu diberi dukungan agar bisa ikut menjaga lingkungan.\n\nSebagai Eco Citizen, peran Ibu Eneng menggambarkan keseharian masyarakat desa yang penuh potensi untuk berubah bila diberi edukasi dan kesempatan.",
+    "ability": "Memegang nilai-nilai budaya lokal yang berpotensi membantu menjaga lingkungan",
+    "isActive": true,
+    "createdAt": {"$date": "2025-01-27T10:00:00.000Z"},
+    "updatedAt": {"$date": "2025-01-27T10:00:00.000Z"}
+  },
+  {
+    "_id": "green_guardian_1",
+    "name": "Kang Raka", 
+    "displayName": "GREEN GUARDIAN1",
+    "roleType": "Green Guardian",
+    "cardImage": "/assets/images/cards/kang-raka-green-guardian.png",
+    "description": "Di sebuah desa bernama Dayeuhmanggung, di kaki Gunung Cikuray, tinggal seorang pemuda bernama Kang Raka. Sehari-hari ia bekerja sebagai petani, tapi di balik kesibukannya, ia juga dikenal sebagai juragan leuweung bukan karena punya hutan, tapi karena paling rajin merawat dan menjaga alam.\n\nSetiap hari Sabtu, Kang Raka memimpin warga ngabersihan leuweung (membersihkan hutan) dari sampah dan ranting kering agar tidak terjadi karhutla (kebakaran hutan dan lahan). Ia mengajak anak muda menanam pohon kembali di tanah kritis dan membuat jalur resapan air sederhana dari bambu.\n\n\"Lamun leuweung rusak, cai moal aya. Lamun cai teu aya, kahirupan urang oge leungit.\"\n(Kalau hutan rusak, air akan hilang. Kalau air hilang, hidup kita pun terancam.)\n\nIa tidak banyak bicara, tapi tindakannya membuat banyak orang tersadar. Bagi warga desa, Kang Raka adalah penjaga alam sejati.\n\nGreen Guardian seperti Kang Raka melambangkan mereka yang beraksi nyata di garis depan melawan krisis iklim, polusi, dan kebakaran hutan. Ia punya kemampuan untuk melindungi satu pemain setiap malam, sebagaimana Kang Raka melindungi desanya dari kerusakan lingkungan.",
+    "ability": "Dapat melindungi satu pemain setiap malam dari serangan",
+    "isActive": true,
+    "createdAt": {"$date": "2025-01-27T10:00:00.000Z"},
+    "updatedAt": {"$date": "2025-01-27T10:00:00.000Z"}
+  },
+  {
+    "_id": "green_guardian_2",
+    "name": "Teh Rani",
+    "displayName": "GREEN GUARDIAN2", 
+    "roleType": "Green Guardian",
+    "cardImage": "/assets/images/cards/teh-rani-green-guardian.png",
+    "description": "Di desa Dayeuhmanggung, seorang guru bernama Teh Rani setiap pagi berjalan kaki menuju sekolah dasar. Tapi pengabdiannya tak hanya di ruang kelas. Ia dikenal sebagai panggero alam panggilan alam karena semangatnya dalam mengajarkan pentingnya lingkungan kepada anak-anak desa.\n\nIa membentuk \"Sakola Hejo\", program sekolah hijau yang mengajarkan cara membuat lubang biopori, memilah sampah, dan memanfaatkan air hujan. Ia juga rutin mengadakan \"Poe Tanam\" (Hari Menanam) bersama warga kampung.\n\n\"Ngajarkeun anak jaga lingkungan teh sanés hungkul ngajarkeun pelajaran, tapi ngajarkeun kahirupan.\"\n(Mengajarkan anak-anak menjaga lingkungan bukan sekadar pelajaran, tapi mengajarkan makna kehidupan)\n\nTeh Rani percaya bahwa perubahan besar dimulai dari tangan-tangan kecil. Ia membuat anak-anak mencintai alam bukan dengan teori, tapi lewat kebiasaan.\n\nTeh Rani melambangkan mereka yang menanamkan nilai peduli lingkungan sejak dini, agar bumi tetap lestari. Ia bisa melindungi satu pemain tiap malam, sebagaimana ia melindungi masa depan melalui pendidikan dan keteladanan.",
+    "ability": "Dapat melindungi satu pemain tiap malam melalui pendidikan dan keteladanan",
+    "isActive": true,
+    "createdAt": {"$date": "2025-01-27T10:00:00.000Z"},
+    "updatedAt": {"$date": "2025-01-27T10:00:00.000Z"}
+  },
+  {
+    "_id": "waste_villain_1",
+    "name": "Mang Karwa",
+    "displayName": "WASTE VILLAIN2",
+    "roleType": "Waste Villain", 
+    "cardImage": "/assets/images/cards/mang-karwa-waste-villain.png",
+    "description": "Di balik bangunan bata tua dekat aliran sungai kecil di Desa Dayeuhmanggung, berdiri gudang milik Mang Karwa. Katanya usaha barang bekas, tapi warga sering lihat truk besar datang tengah malam, menurunkan karung hitam misterius. Tak lama, aliran air berubah warna, bau menyengat menusuk hidung.\n\nSungai yang dulunya tempat anak-anak mandi dan emak-emak ngumbah (mencuci) kini mati total. Ikan lele liar dan oray cai (ular air) menghilang. Warga sakit kulit, sawah gagal panen, sumur-sumur mulai mongering. Tapi Mang Karwa bersikeras:\n\n\"Ulah salempang, ieu mah hal biasa. Alam ogé bisa bersihin diri sorangan.\" (Jangan khawatir, ini hal biasa. Alam juga bisa membersihkan diri sendiri.)\n\n\"Lamun alam dipaksa, manusa nu bakal narima balukarna.\"\n(Kalau alam dipaksa, manusialah yang akan menerima akibatnya).\n\nMang Karwa menyamar sebagai warga biasa. Di balik layar, ia mencemari air, menyebar sampah plastik, dan mempercepat krisis lingkungan yang memperlemah desa secara perlahan",
+    "ability": "Dapat menyerang dan mengeliminasi pemain lain di malam hari sambil menyamar sebagai warga biasa di siang hari",
+    "isActive": true,
+    "createdAt": {"$date": "2025-01-27T10:00:00.000Z"},
+    "updatedAt": {"$date": "2025-01-27T10:00:00.000Z"}
+  },
+  {
+    "_id": "waste_villain_2",
+    "name": "Yana",
+    "displayName": "WASTE VILLAIN1",
+    "roleType": "Waste Villain",
+    "cardImage": "/assets/images/cards/yana-waste-villain.png",
+    "description": "Yana, pengusaha muda dari luar desa, datang ke Dayeuhmanggung membawa \"janji pembangunan.\" Ia menggandeng beberapa warga membuka lahan hutan di kaki Gunung Cikuray. Tapi alih-alih pakai cara ramah lingkungan, mereka pilih ngaduruk lahan (membakar).\n\nHutan adat, yang dulu dijaga leluhur dan jadi tempat ngajaga hujan (memelihara keseimbangan air), kini berubah jadi puing. Tutuwuhan langka (tanaman langka) mati, satwa endemik menghilang, dan kabut asap menyelimuti desa. Tapi Yana tetap berkata:\n\n\"Kumaha hayang maju lamun terus-terusan ngandelkeun adat? Urang butuh inovasi.\" (Gimana mau maju kalau terus bergantung pada adat? Kita butuh inovasi.)\n\n\"Teu sakabéh nu disebut kamajuan téh hartina bener.\"\n(Tidak semua yang disebut kemajuan itu berarti benar.)\n\nYana menebar pengaruh, merusak hutan, dan memicu perubahan iklim. Diam-diam, ia memperlemah keberlangsungan desa, bersembunyi di balik nama \"pembangunan.\"",
+    "ability": "Dapat menyerang dan mengeliminasi pemain lain sambil menyebarkan pengaruh destruktif dan bersembunyi di balik nama pembangunan",
+    "isActive": true,
+    "createdAt": {"$date": "2025-01-27T10:00:00.000Z"},
+    "updatedAt": {"$date": "2025-01-27T10:00:00.000Z"}
+  },
+  {
+    "_id": "waste_manager_1",
+    "name": "Pak Harsa",
+    "displayName": "WASTE MANAGER",
+    "roleType": "Waste Manager",
+    "cardImage": "/assets/images/cards/waste-manager.png",
+    "description": "Di kaki Gunung Cikuray, Desa Dayeuhmanggung dikenal sebagai kampung yang masih menjunjung silih asih, silih asah, silih asuh. Di sanalah tinggal Pak Harsa, pengelola bank sampah desa yang terkenal rajin dan teliti.\n\nSetiap pagi ia keliling kampung bukan hanya untuk mengambil barang daur ulang, tapi juga mengamati keadaan lingkungan. Ia tak bisa tahu segalanya, tapi ia pandai membaca tanda. Bau menyengat di udara, genangan air yang berubah warna, atau kebiasaan warga yang berubah semua itu adalah petunjuk yang membantunya menjaga desa.\n\n\"Panon mah teu bisa ningali sagalana, tapi rasa jeung perhatian mah teu weléh hurip.\"\n(Mata memang tak bisa melihat segalanya, tapi rasa dan kepedulian tak pernah mati.)\n\nDalam permainan, Waste Manager punya kelebihan: setiap malam ia dapat memilih satu pemain untuk diamati, dan melalui moderator akan diberi tahu apakah orang itu tergolong sebagai perusak lingkungan (Waste Villain) atau bukan.\n\nTapi tentu saja, ia tak bisa sembarangan membuka informasi. Seperti Pak Harsa yang selalu berhati-hati dalam bicara, pemain Waste Manager pun harus bijak membaca situasi.",
+    "ability": "Setiap malam dapat memilih satu pemain untuk diamati dan mengetahui apakah tergolong Waste Villain atau bukan",
+    "isActive": true,
+    "createdAt": {"$date": "2025-01-27T10:00:00.000Z"},
+    "updatedAt": {"$date": "2025-01-27T10:00:00.000Z"}
+  },
+  {
+    "_id": "sustainability_guide_1",
+    "name": "Kang Alam", 
+    "displayName": "SUSTAINABILITY GUIDE",
+    "roleType": "Sustainability Guide",
+    "cardImage": "/assets/images/cards/sustainability-guide.png",
+    "description": "Alam adalah sosok yang dituakan di Desa Dayeuhmanggung. Ia bukan kepala desa secara jabatan, tetapi pangaping lembur penuntun masyarakat dalam nilai-nilai kahirupan (kehidupan) dan kelestarian alam. Sejak muda, ia belajar banyak dari karuhun (leluhur) tentang pentingnya menjaga keseimbangan antara manusia dan alam.\n\n\"Alam téh sakola nu teu boga tembok,\" katanya suatu hari sambil mengajarkan anak-anak menanam pohon di lereng Gunung Cikuray. (Alam itu sekolah tanpa dinding.) Ia meyakini bahwa masalah seperti kebakaran hutan, krisis air, dan polusi bukan hanya soal teknis, tapi soal cara berpikir dan cara hidup.\n\nSebagai Sustainability Guide, Raka tidak ikut bertarung atau bersembunyi dalam konflik antar peran. Ia adalah penuntun. Di sepanjang permainan, ia membantu memastikan nilai-nilai luhur seperti gotong royong (sabilulungan) dan peduli sesama (silih asah, silih asih, silih asuh) tetap hidup.\n\nIa tidak bisa mengubah jalan cerita, tapi bisa menuntun arah langkah. Ia tahu bahwa perubahan besar selalu dimulai dari satu hal sederhana yaitu kesadaran.",
+    "ability": "Membantu memastikan nilai-nilai luhur tetap hidup dalam permainan dan menuntun arah langkah tanpa bisa mengubah jalan cerita",
+    "isActive": true,
+    "createdAt": {"$date": "2025-01-27T10:00:00.000Z"},
+    "updatedAt": {"$date": "2025-01-27T10:00:00.000Z"}
+  }
+]

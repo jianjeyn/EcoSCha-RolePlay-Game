@@ -1,0 +1,106 @@
+[
+  {
+    "_id": "narrative_1",
+    "kapanDibaca": "Sebelum Kuis Awal",
+    "isiBacaan": "Sebelum permainan EcoSCha dimulai, kalian akan mengerjakan kuis seputar isu lingkungan. Kuis ini sangat penting, karena seperti pesan karuhun (leluhur) kita, karena seperti pesan karuhun (leluhur) Sunda, \"Ulah sok ngahinakeun alam, sabab alam téh sakabehna titipan nu kudu dijaga\" (jangan pernah merendahkan alam, karena alam adalah titipan yang harus dijaga). Setiap langkah harus berlandaskan pengetahuan. Nilai dari kuis ini akan menjadi poin awal kalian. Pemain dengan skor tertinggi akan mendapatkan kesempatan istimewa pada fase malam nanti. Ingat, ini bukan hanya untuk menang, tetapi juga untuk menguji, mengasah, dan menumbuhkan rasa hormat serta kepedulian terhadap bumi agar tetap ngamumule (terjaga) kelestariannya.",
+    "isActive": true,
+    "createdAt": {"$date": "2025-01-27T10:00:00.000Z"},
+    "updatedAt": {"$date": "2025-01-27T10:00:00.000Z"}
+  },
+  {
+    "_id": "narrative_2",
+    "kapanDibaca": "Mulai Permainan",
+    "isiBacaan": "Di tanah ini, bumi mulai karunya (kasihan). Hutan ditebang sembarangan, sungai dipenuhi runtah (sampah), dan langit semakin panas oleh polusi. Alam tidak sedang baik-baik saja. Leluhur kita pernah berpesan, \"Jaga alam, alam bakal ngajaga urang\" (jaga alam, maka alam akan menjaga kita). Namun, tidak semua orang mendengar dan menjalankan pesan itu. Kini, ada dua golongan yang hidup berdampingan penjaga bumi dan perusak yang bersembunyi di balik wajah yang sama. Kalian adalah bagian dari cerita ini. Masing-masing memiliki peran, ada yang bertugas menjaga, ada pula yang diam-diam menghancurkan. Gunakan akal, hati, dan pangalaman hirup (pengalaman hidup) kalian. Ingat, ini bukan sekadar permainan, melainkan latihan untuk berpikir kritis, mengasah strategi, dan membangun kerja sama demi masa depan bumi yang ngamumule (terjaga) kelestariannya.",
+    "isActive": true,
+    "createdAt": {"$date": "2025-01-27T10:00:00.000Z"},
+    "updatedAt": {"$date": "2025-01-27T10:00:00.000Z"}
+  },
+  {
+    "_id": "narrative_3",
+    "kapanDibaca": "Fasa Malam - Pembukaan",
+    "isiBacaan": "Malam telah tiba. Langit gelap, dan suasana menjadi hening. Semua pemain, silakan tutup mata. Seperti yang diajarkan oleh karuhun (leluhur): \"Nu hade sok leumpang dina sepi\" (yang baik berjalan dalam diam). Dalam keheningan ini, bumi menunggu nasibnya. Apakah malam ini ia akan selamat, atau justru kehilangan penjaganya?",
+    "isActive": true,
+    "createdAt": {"$date": "2025-01-27T10:00:00.000Z"},
+    "updatedAt": {"$date": "2025-01-27T10:00:00.000Z"}
+  },
+  {
+    "_id": "narrative_4",
+    "kapanDibaca": "Fasa Malam - Pemain Skor Tertinggi",
+    "isiBacaan": "Sekarang, pemain dengan skor kuis tertinggi, silakan buka mata. Pilih satu pemain yang ingin kamu ketahui perannya (Moderator akan memberi tahu peran pemain tersebut secara diam-diam)",
+    "isActive": true,
+    "createdAt": {"$date": "2025-01-27T10:00:00.000Z"},
+    "updatedAt": {"$date": "2025-01-27T10:00:00.000Z"}
+  },
+  {
+    "_id": "narrative_5",
+    "kapanDibaca": "Fasa Malam - Waste Villain",
+    "isiBacaan": "Sekarang, Waste Villain… silahkan buka mata dan saling mengenali. Tunjuk satu pemain yang akan kalian eliminasi malam ini.",
+    "isActive": true,
+    "createdAt": {"$date": "2025-01-27T10:00:00.000Z"},
+    "updatedAt": {"$date": "2025-01-27T10:00:00.000Z"}
+  },
+  {
+    "_id": "narrative_6",
+    "kapanDibaca": "Fasa Malam - Green Guardian",
+    "isiBacaan": "Sekarang, Green Guardian… silahkan buka mata. Tunjuk satu pemain yang ingin kamu selamatkan malam ini",
+    "isActive": true,
+    "createdAt": {"$date": "2025-01-27T10:00:00.000Z"},
+    "updatedAt": {"$date": "2025-01-27T10:00:00.000Z"}
+  },
+  {
+    "_id": "narrative_7",
+    "kapanDibaca": "Fasa Malam - Waste Manager",
+    "isiBacaan": "Sekarang, Waste Manager… silahkan buka mata. Tunjuk satu pemain yang ingin kamu periksa perannya",
+    "isActive": true,
+    "createdAt": {"$date": "2025-01-27T10:00:00.000Z"},
+    "updatedAt": {"$date": "2025-01-27T10:00:00.000Z"}
+  },
+  {
+    "_id": "narrative_8",
+    "kapanDibaca": "Fasa Malam - Sustainability Guide",
+    "isiBacaan": "(Sustainability Guide menyampaikan hasil aksi di fasa malam)",
+    "isActive": true,
+    "createdAt": {"$date": "2025-01-27T10:00:00.000Z"},
+    "updatedAt": {"$date": "2025-01-27T10:00:00.000Z"}
+  },
+  {
+    "_id": "narrative_9",
+    "kapanDibaca": "Fasa Pagi",
+    "isiBacaan": "Fajar menyingsing. Warga berkumpul di balai desa tempat musyawarah dan mencari mufakat. Tatapan mata saling bersilang, penuh rasa curiga. Kepercayaan mulai goyah. Namun, siapa sebenarnya yang menyimpan niat buruk terhadap bumi? Sebelum kalian memilih siapa yang harus pergi, mari dengarkan pesan dari alam melalui berita, video, atau peristiwa nyata. Para karuhun (leluhur) kita mengajarkan bahwa \"Lingkungan bukan warisan, tapi titipan. Lamun urang lalawora (jika kita masa bodoh), generasi selanjutnya nu bakal nanggung akibatna (generasi selanjutnya yang akan menanggung akibatnya).\" Ingatlah pesan itu sebelum kalian membuat keputusan, karena satu langkah salah bisa menentukan masa depan bumi. (Pemain berdiskusi dan dilakukan voting)",
+    "isActive": true,
+    "createdAt": {"$date": "2025-01-27T10:00:00.000Z"},
+    "updatedAt": {"$date": "2025-01-27T10:00:00.000Z"}
+  },
+  {
+    "_id": "narrative_10",
+    "kapanDibaca": "Akhir Permainan - Kubu Baik Menang",
+    "isiBacaan": "Hari ini, bumi bersyukur. Kalian telah menjaga kehormatan ajaran karuhun (leluhur). Alam bukan sekadar objek, tapi bagian dari hidup yang harus disayang, dirawat, dan diwariskan dalam keadaan terbaik. Kalian membuktikan bahwa kerja sama, kepercayaan, dan kepedulian dapat mengalahkan tipu daya. Ingatlah, menjaga bumi bukan hanya tugas satu orang, tapi kewajiban bersama demi anak cucu yang akan datang.",
+    "isActive": true,
+    "createdAt": {"$date": "2025-01-27T10:00:00.000Z"},
+    "updatedAt": {"$date": "2025-01-27T10:00:00.000Z"}
+  },
+  {
+    "_id": "narrative_11",
+    "kapanDibaca": "Akhir Permainan - Kubu Jahat Menang", 
+    "isiBacaan": "Kemenangan hari ini adalah sebuah peringatan. Ketika alam dirusak secara diam-diam, cepat atau lambat bencana akan datang. Namun, selagi masih ada kesempatan untuk belajar, masih ada harapan untuk memperbaiki. Permainan ini mengingatkan kita bahwa kelengahan, ketidakpedulian, dan ego dapat mengorbankan masa depan bumi. Jadikan pengalaman ini pelajaran bahwa menjaga alam berarti menjaga kehidupan itu sendiri.",
+    "isActive": true,
+    "createdAt": {"$date": "2025-01-27T10:00:00.000Z"},
+    "updatedAt": {"$date": "2025-01-27T10:00:00.000Z"}
+  },
+  {
+    "_id": "narrative_12",
+    "kapanDibaca": "Akhir Kuis",
+    "isiBacaan": "Permainan telah selesai, tetapi perjalanan kalian untuk menjaga bumi belum berakhir. Sekarang waktunya mengerjakan kuis penutup. Di sini, kalian akan merefleksikan apa yang telah dipelajari sepanjang permainan tentang strategi, kerja sama, dan tentu saja, isu lingkungan. Seperti yang sering diingatkan oleh karuhun kita 'Ulah lalawora' (jangan masa bodoh) terhadap lingkungan. Sekecil apapun aksi yang kita lakukan, bisa membawa dampak besar bagi alam. Silakan akses kuis akhir melalui tautan berikut. Ingat, ini bukan sekadar soal benar atau salah, tetapi tentang seberapa dalam kalian memahami peran kalian sebagai penjaga bumi.",
+    "isActive": true,
+    "createdAt": {"$date": "2025-01-27T10:00:00.000Z"},
+    "updatedAt": {"$date": "2025-01-27T10:00:00.000Z"}
+  },
+  {
+    "_id": "narrative_13",
+    "kapanDibaca": "Penutup",
+    "isiBacaan": "Permainan ini mungkin sudah berakhir, tapi pelajaran yang kalian dapatkan belum berhenti di sini. Selama bermain, kalian telah belajar berpikir kritis, bekerja sama, dan melihat persoalan lingkungan dari sudut pandang yang berbeda. Kalian bukan hanya memerankan sebuah karakter, tapi juga menjadi bagian dari solusi. Di kehidupan nyata, kita tidak selalu diberi kesempatan kedua. Seperti pesan karuhun (leluhur): 'Bumi moal pernah bohong ka nu ngarusak' (bumi tidak akan pernah memaafkan mereka yang merusaknya). Maka, lanjutkan langkah kecil ini di luar permainan: pilah sampah, hemat energi, jaga air, dan suarakan kepedulianmu. Ingat, EcoSCha bukan sekadar permainan, tapi gerakan sadar lingkungan yang dimulai dari diri sendiri. Terima kasih sudah bermain, belajar, dan peduli. Sekarang, bumi menunggu aksi nyata kalian.",
+    "isActive": true,
+    "createdAt": {"$date": "2025-01-27T10:00:00.000Z"},
+    "updatedAt": {"$date": "2025-01-27T10:00:00.000Z"}
+  }
+]
