@@ -60,16 +60,43 @@ const Header = ({ user, onLogout }) => {
           alt="EcoSCha Navbar"
           className="w-full h-auto object-cover"
         />
-        {/* Hamburger Menu Button */}
+        {/* Navbar Buttons */}
+        <nav className="absolute top-2 right-8 flex space-x-6 z-10">
+          <a
+            href="/"
+            className="px-4 py-2 rounded-full text-[#6B7A2C] font-semibold hover:bg-yellow-300 transition"
+          >
+            Halaman Utama
+          </a>
+          <a
+            href="/landing"
+            className="px-4 py-2 rounded-full text-[#6B7A2C] font-semibold hover:bg-yellow-300 transition"
+          >
+            Mulai Permainan
+          </a>
+          <a
+            href="/guide"
+            className="px-4 py-2 rounded-full text-[#6B7A2C] font-semibold hover:bg-yellow-300 transition"
+          >
+            Petunjuk
+          </a>
+          <a
+            href="/profile"
+            className="px-4 py-2 rounded-full text-[#6B7A2C] font-semibold hover:bg-yellow-300 transition"
+          >
+            Profil
+          </a>
+        </nav>
+        {/* Hamburger Menu Button
         <button className="absolute top-0 right-4 p-2 hover:bg-black/10 rounded-lg transition-colors duration-200 hover:scale-105 transform">
           <img
             src="/assets/images/icons/hamburgerbutton.png"
             alt="Menu"
             className="w-10 h-10 transition-transform duration-200 hover:brightness-110"
           />
-        </button>
+        </button> */}
 
-        {/* User info - conditionally rendered if user exists */}
+        {/* User info - conditionally rendered if user exists
         {user && (
           <div className="absolute top-0 left-4 flex items-center space-x-4 p-2">
             <span className="text-sm text-white">Welcome, {user.name}</span>
@@ -80,7 +107,7 @@ const Header = ({ user, onLogout }) => {
               Logout
             </button>
           </div>
-        )}
+        )} */}
       </header>
     </>
   );
