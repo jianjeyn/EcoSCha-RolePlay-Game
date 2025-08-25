@@ -3,11 +3,34 @@ import React, { useState, useEffect } from "react";
 import Header from "../components/common/Header";
 import Background from "../components/common/Background";
 import Footer from "../components/common/Footer";
-import axios from "axios";
 import { useNavigate, useLocation } from "react-router-dom";
 
 
 const RoleExplanationRoomPage = () => {
+  // Mapping param ke key karakter
+  const paramToKey = {
+    "1": "asep_eco_citizen",
+    "2": "ibu_eneng_eco_citizen",
+    "3": "kang_raka_green_guardian",
+    "4": "teh_rani_green_guardian",
+    "5": "mang_karwa_waste_villain",
+    "6": "yana_waste_villain",
+    "7": "waste_manager",
+    "8": "sustainability_guide",
+    "asep": "asep_eco_citizen",
+    "eneng": "ibu_eneng_eco_citizen",
+    "raka": "kang_raka_green_guardian",
+    "rani": "teh_rani_green_guardian",
+    "karwa": "mang_karwa_waste_villain",
+    "yana": "yana_waste_villain",
+    "harsa": "waste_manager",
+    "alam": "sustainability_guide",
+    "eco_citizen": "asep_eco_citizen",
+    "waste_villain": "mang_karwa_waste_villain",
+    "green_guardian": "kang_raka_green_guardian",
+    "waste_manager": "waste_manager",
+    "sustainability_guide": "sustainability_guide"
+  };
   const navigate = useNavigate();
   const location = useLocation();
   const params = new URLSearchParams(location.search);
@@ -18,56 +41,96 @@ const RoleExplanationRoomPage = () => {
   const [profile, setProfile] = useState(null);
   const [mainCharacter, setMainCharacter] = useState(null);
   const [otherCharacters, setOtherCharacters] = useState([]);
+
+  // Data karakter manual
+  const characterData = [
+    {
+      key: "asep_eco_citizen",
+      name: "Asep",
+      displayName: "Asep Eco Citizen",
+      roleType: "Eco Citizen",
+      cardImage: "/assets/images/cards/asep-eco-citizen.png",
+      description: "Asep adalah warga desa yang peduli lingkungan.",
+      abilities: [{ name: "Edukasi", description: "Memberi edukasi ke warga lain." }]
+    },
+    {
+      key: "ibu_eneng_eco_citizen",
+      name: "Ibu Eneng",
+      displayName: "Ibu Eneng Eco Citizen",
+      roleType: "Eco Citizen",
+      cardImage: "/assets/images/cards/ibu-eneng-eco-citizen.png",
+      description: "Ibu Eneng aktif mengajak warga memilah sampah.",
+      abilities: [{ name: "Motivasi", description: "Mendorong warga lain untuk ikut memilah." }]
+    },
+    {
+      key: "kang_raka_green_guardian",
+      name: "Kang Raka",
+      displayName: "Kang Raka Green Guardian",
+      roleType: "Green Guardian",
+      cardImage: "/assets/images/cards/kang-raka-green-guardian.png",
+      description: "Kang Raka menjaga kebersihan desa.",
+      abilities: [{ name: "Patroli", description: "Memantau area desa dari sampah liar." }]
+    },
+    {
+      key: "teh_rani_green_guardian",
+      name: "Teh Rani",
+      displayName: "Teh Rani Green Guardian",
+      roleType: "Green Guardian",
+      cardImage: "/assets/images/cards/teh-rani-green-guardian.png",
+      description: "Teh Rani mengajak anak-anak peduli lingkungan.",
+      abilities: [{ name: "Kampanye", description: "Mengadakan kampanye lingkungan." }]
+    },
+    {
+      key: "mang_karwa_waste_villain",
+      name: "Mang Karwa",
+      displayName: "Mang Karwa Waste Villain",
+      roleType: "Waste Villain",
+      cardImage: "/assets/images/cards/mang-karwa-waste-villain.png",
+      description: "Mang Karwa suka buang sampah sembarangan.",
+      abilities: [{ name: "Sabotase", description: "Mengacaukan sistem pengelolaan sampah." }]
+    },
+    {
+      key: "yana_waste_villain",
+      name: "Yana",
+      displayName: "Yana Waste Villain",
+      roleType: "Waste Villain",
+      cardImage: "/assets/images/cards/yana-waste-villain.png",
+      description: "Yana sering membakar sampah di kebun.",
+      abilities: [{ name: "Bakar Sampah", description: "Membakar sampah secara ilegal." }]
+    },
+    {
+      key: "waste_manager",
+      name: "Pak Harsa",
+      displayName: "Pak Harsa Waste Manager",
+      roleType: "Waste Manager",
+      cardImage: "/assets/images/cards/waste-manager.png",
+      description: "Pak Harsa mengelola TPS desa.",
+      abilities: [{ name: "Koordinasi", description: "Mengatur jadwal pengangkutan sampah." }]
+    },
+    {
+      key: "sustainability_guide",
+      name: "Kang Alam",
+      displayName: "Kang Alam Sustainability Guide",
+      roleType: "Sustainability Guide",
+      cardImage: "/assets/images/cards/sustainability-guide.png",
+      description: "Kang Alam membimbing warga menuju desa lestari.",
+      abilities: [{ name: "Bimbingan", description: "Memberi arahan ke semua peran." }]
+    }
+  ];
   const [generatedCode, setGeneratedCode] = useState("");
   const [roomCode, setRoomCode] = useState("");
   const [inputRoomCode, setInputRoomCode] = useState("");
 
   useEffect(() => {
-    // Jika ada param character, ambil data karakter langsung
+    // Ambil data karakter dari mapping manual
     if (characterParam) {
-      // Mapping param ke nama karakter spesifik
-      let targetName = "";
-      if (characterParam === "waste_manager") targetName = "Pak Harsa";
-      else if (characterParam === "sustainability_guide") targetName = "Kang Alam";
-      else if (characterParam === "asep_eco_citizen") targetName = "Asep";
-      else if (characterParam === "ibu_eneng_eco_citizen") targetName = "Ibu Eneng";
-      else if (characterParam === "kang_raka_green_guardian") targetName = "Kang Raka";
-      else if (characterParam === "teh_rani_green_guardian") targetName = "Teh Rani";
-      else if (characterParam === "mang_karwa_waste_villain") targetName = "Mang Karwa";
-      else if (characterParam === "yana_waste_villain") targetName = "Yana";
-      // Fallback: ambil kata pertama dari param
-      else targetName = characterParam.split('_')[0];
-
-      axios.get(`${process.env.REACT_APP_API_URL}/api/characters`).then(charRes => {
-        const allCharacters = charRes.data;
-        // Cari karakter dengan name persis (case-insensitive)
-        const foundChar = allCharacters.find(c => c.name.toLowerCase() === targetName.toLowerCase());
-        setMainCharacter(foundChar);
-        setOtherCharacters(allCharacters.filter(c => c !== foundChar));
-      });
-      return;
+      // Mapping param ke key karakter
+      const mappedKey = paramToKey[characterParam] || characterParam;
+      const foundChar = characterData.find(c => c.key === mappedKey);
+      setMainCharacter(foundChar || characterData[0]); // default ke Asep jika tidak ketemu
+      setOtherCharacters(characterData.filter(c => c.key !== (foundChar ? foundChar.key : characterData[0].key)));
     }
-    // Jika tidak ada param character, fallback ke session
-    if (sessionId && userId) {
-      const token = localStorage.getItem("token");
-      axios.get(`${process.env.REACT_APP_API_URL}/api/gameSession/${sessionId}`, {
-        headers: { Authorization: `Bearer ${token}` }
-      }).then(res => {
-        const session = res.data;
-        const player = session.players.find(p => p.userId._id === userId);
-        axios.get(`${process.env.REACT_APP_API_URL}/api/characters`).then(charRes => {
-          const allCharacters = charRes.data;
-          const userCharacter = allCharacters.find(c => c._id === player.characterId);
-          setProfile({
-            ...player,
-            character: userCharacter,
-            characterList: allCharacters
-          });
-          setOtherCharacters(allCharacters.filter(c => c._id !== player.characterId));
-        });
-      });
-    }
-  }, [characterParam, sessionId, userId]);
+  }, [characterParam]);
 
   const generateNewCode = () => {
     const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
@@ -183,7 +246,12 @@ const RoleExplanationRoomPage = () => {
               ) : null}
             </div>
           </div>
-        ) : null}
+        ) : (
+          <div className="flex flex-col items-center justify-center py-8">
+            <div className="text-xl font-bold text-red-700 mb-2">Karakter tidak ditemukan</div>
+            <div className="text-gray-600">Pastikan param dan data karakter di database sudah benar.</div>
+          </div>
+        )}
         {/* Section khusus penjelasan kartu lain (tanpa input/output kode room) */}
         <section className="mt-12">
           <div className="text-center mb-8">
@@ -224,7 +292,6 @@ const RoleExplanationRoomPage = () => {
             </div>
           </div>
         )}
-      <Footer />
       </main>
       <Footer />
     </Background>
