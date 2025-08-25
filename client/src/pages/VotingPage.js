@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/common/Header";
 import Background from "../components/common/Background";
@@ -8,57 +10,35 @@ const VotingPage = () => {
   const [timer, setTimer] = useState("05:00");
   const navigate = useNavigate();
 
-  const players = [
-    { id: 1, name: "Player 1", isAlive: true },
-    { id: 2, name: "Player 2", isAlive: true },
-    { id: 3, name: "Player 3", isAlive: true },
-    { id: 4, name: "Player 4", isAlive: true },
-    { id: 5, name: "Player 5", isAlive: true },
-    { id: 6, name: "Player 6", isAlive: true },
-    { id: 7, name: "Player 7", isAlive: true },
-    { id: 8, name: "Player 8", isAlive: true },
-  ];
+  const [players, setPlayers] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [narratives, setNarratives] = useState([]);
+  const [showNarrative, setShowNarrative] = useState(true);
+  useEffect(() => {
+    // Ambil data user dari backend
+    axios.get("http://localhost:3000/api/users")
+      .then(res => {
+        setPlayers(res.data.filter(u => u.isAlive !== false));
+        setLoading(false);
+      })
+      .catch(() => setLoading(false));
+    // Ambil narasi voting
+    axios.get("http://localhost:3000/api/narratives?phase=voting")
+      .then(res => setNarratives(res.data))
+      .catch(() => {});
+  }, []);
 
   const handlePlayerSelect = (playerId) => {
-    setSelectedPlayer(playerId);
-  };
-
-  const handleConfirm = () => {
-    if (selectedPlayer) {
-      console.log(`Voted for player ${selectedPlayer}`);
-      // Handle voting logic here
-      // navigate to next phase or show results
-    }
-  };
-
-  return (
-    <Background>
-      {/* Header */}
-      <Header />
-
-      {/* Main Content */}
-      <main className="relative z-10 max-w-4xl mx-auto px-4 py-8">
-        {/* Instruction Card with Day Badge and Timer */}
-        <div className="bg-white rounded-xl shadow-lg p-8 mb-12 relative">
-          {/* Day Badge - positioned at top left corner */}
-          <div className="absolute -top-4 -left-4 bg-yellow text-white font-bold py-3 px-12 rounded-xl shadow-lg text-lg z-10">
-            SIANG 1
-          </div>
-
-          {/* Timer - positioned at top right corner */}
-          <div
-            className="absolute -top-4 -right-4 text-white font-bold py-3 px-6 rounded-lg text-lg z-10"
-            style={{ backgroundColor: "#982827" }}
-          >
-            {timer}
-          </div>
-
-          {/* Instruction Text */}
-          <div className="text-gray-800 text-base font-poppins pt-4">
-            Diskusikan bersama teman untuk memilih salah satu warga yang
-            dicurigai sebagai Waste Villain dan akan dieliminasi:
-          </div>
-        </div>
+// ...existing code...
+              >
+                OK
+              </button>
+            </div>
+          </>
+        )}
+      </main>
+    </Background>
+  );
 
         {/* Players Grid */}
         <div className="grid grid-cols-4 gap-4 mb-8">

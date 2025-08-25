@@ -37,6 +37,7 @@ const SignupPage = () => {
       });
       localStorage.setItem("token", loginRes.data.token);
       localStorage.setItem("userId", loginRes.data.user._id);
+      localStorage.setItem("roleId", formData.roleId); // Simpan roleId
       navigate("/role-explanation");
     } catch (err) {
       alert("Register gagal: " + (err.response?.data?.error || err.message));
@@ -106,6 +107,7 @@ const SignupPage = () => {
               <button
                 type="button"
                 className="text-blue-600 hover:text-blue-800 text-sm transition-colors duration-200 bg-transparent border-none cursor-pointer"
+                onClick={() => navigate(`/login?role=${roleId}`)}
               >
                 Sudah memiliki akun?
               </button>

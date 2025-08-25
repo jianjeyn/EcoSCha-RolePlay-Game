@@ -57,3 +57,23 @@ exports.delete = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+exports.getGameSessionHistory = async (req, res) => {
+  const sessionId = req.params.id;
+  try {
+    const session = await GameSession.findById(sessionId);
+    if (!session) return res.status(404).json({ error: 'Session not found' });
+    res.json({
+      sessionId: session._id,
+      startedAt: session.startedAt,
+      endedAt: session.endedAt,
+      gameState: session.gameState,
+      nightState: session.nightState,
+      dayState: session.dayState,
+      votingState: session.votingState,
+      players: session.players,
+      history: session.history || []
+    });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to fetch game session history' });
+  }
+};

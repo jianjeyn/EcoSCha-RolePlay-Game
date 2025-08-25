@@ -3,11 +3,15 @@ import React, { useState, useEffect } from "react";
 import Header from "../components/common/Header";
 import Background from "../components/common/Background";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 
 const RoleExplanationRoomPage = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  // Ambil role dari query param
+  const params = new URLSearchParams(location.search);
+  const roleId = params.get("role") || localStorage.getItem("roleId") || "eco_citizen";
   const [profile, setProfile] = useState(null);
   const [roomCode, setRoomCode] = useState("");
   const [inputRoomCode, setInputRoomCode] = useState("");
@@ -22,14 +26,14 @@ const RoleExplanationRoomPage = () => {
       // Fetch all characters
       axios.get("http://localhost:3000/api/characters")
         .then(charRes => {
-          // Find user's character
-          const userCharacter = charRes.data.find(c => c.roleType === userProfile.user.roleId);
+          // Find user's character by roleId from query/localStorage
+          const userCharacter = charRes.data.find(c => c.roleType === roleId);
           userProfile.character = userCharacter;
           userProfile.characterList = charRes.data;
           setProfile(userProfile);
         });
     });
-  }, []);
+  }, [roleId]);
 
   const generateNewCode = () => {
     const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
@@ -48,7 +52,7 @@ const RoleExplanationRoomPage = () => {
   };
 
   const handleStartGame = () => {
-    navigate("/moderator-leaderboard-startgame");
+    navigate("/leaderboard");
   };
 
   const RoleCard = ({ character }) => (
@@ -170,24 +174,36 @@ const RoleExplanationRoomPage = () => {
             </div>
           </div>
         )}
-        {/* Karakter lain di bawah */}
-        <div className="text-center mb-8">
-          <div className="text-white font-bold py-4 px-8 rounded-2xl shadow-lg inline-block" style={{ backgroundColor: "#F0BE01" }}>
-            <h1 className="text-2xl font-poppins">PERAN LAIN</h1>
-          </div>
-        </div>
-        {otherCharacters.map((character, index) => (
-          <div key={index} className="grid grid-cols-1 lg:grid-cols-5 gap-4 mb-6">
-            <div className="lg:col-span-2">
-              <RoleCard character={character} />
+        {/* Section khusus penjelasan kartu lain (tanpa input/output kode room) */}
+        <section className="mt-12">
+          <div className="text-center mb-8">
+            <div className="text-white font-bold py-4 px-8 rounded-2xl shadow-lg inline-block" style={{ backgroundColor: "#F0BE01" }}>
+              <h1 className="text-2xl font-poppins">PERAN LAIN</h1>
             </div>
-            <div className="lg:col-span-3">
-              <div className="w-full" style={{ marginLeft: "-5%" }}>
-                <img src="/assets/images/icons/moderator-role-desc.png" alt="Role Description" className="w-full h-auto rounded-xl mx-auto" />
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {otherCharacters.map((character, index) => (
+              <div key={index} className="flex flex-col items-center bg-white rounded-2xl shadow-lg p-6">
+                <RoleCard character={character} />
+                <div className="mt-4 w-full">
+                  <div className="font-bold text-lg text-gray-800 text-center mb-2">{character.displayName || character.name}</div>
+                  <div className="text-gray-700 text-center mb-2"><strong>Role:</strong> {character.roleType}</div>
+                  <div className="text-gray-700 text-center mb-2"><strong>Deskripsi:</strong> {character.description || character.desc || "Deskripsi tidak tersedia"}</div>
+                  {character.abilities && character.abilities.length > 0 && (
+                    <div className="text-gray-700 text-center mt-2">
+                      <strong>Abilities:</strong>
+                      <ul className="list-disc list-inside mt-2">
+                        {character.abilities.map((ability, idx) => (
+                          <li key={idx}>{ability.name}: {ability.description}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
               </div>
-            </div>
+            ))}
           </div>
-        ))}
+        </section>
         {/* Generated Code Feedback */}
         {generatedCode && (
           <div className="mt-6 text-center">

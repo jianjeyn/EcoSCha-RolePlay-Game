@@ -16,14 +16,13 @@ const LandingPage = () => {
   const navigate = useNavigate();
 
   const handlePlayClick = () => {
-    const playerId = 8; // Default to 1 if not set
-
-    if (parseInt(playerId) === 8) {
-      // Player 8 is moderator (Sustainability Guide)
+    // Ambil roleId dari localStorage
+    const roleId = localStorage.getItem("roleId") || "eco_citizen";
+    if (roleId === "sustainability_guide") {
       navigate("/moderator-room");
     } else {
-      // Players 1-7 are regular players
-      navigate(`/role-explanation-room/${playerId}`);
+      // Navigasi ke RoleExplanationRoomPage dengan query param role
+      navigate(`/role-explanation-room?role=${roleId}`);
     }
   };
 

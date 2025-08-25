@@ -6,6 +6,7 @@ const { authenticateJWT } = require('../middleware/auth');
 router.get('/', controller.getAll);
 router.get('/by-user', authenticateJWT, controller.getByUser);
 router.get('/:id', controller.getById);
+router.get('/:id/history', controller.getGameSessionHistory);
 router.post('/', controller.create);
 router.put('/:id', controller.update);
 router.delete('/:id', controller.delete);

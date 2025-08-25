@@ -1,3 +1,25 @@
+// GET GAME SESSION HISTORY
+exports.getGameSessionHistory = async (req, res) => {
+  const { sessionId } = req.params;
+  const GameSession = require('../models/GameSession');
+  try {
+    const session = await GameSession.findOne({ sessionId });
+    if (!session) return res.status(404).json({ error: 'Session not found' });
+    res.json({
+      sessionId: session.sessionId,
+      startedAt: session.startedAt,
+      endedAt: session.endedAt,
+      gameState: session.gameState,
+      nightState: session.nightState,
+      dayState: session.dayState,
+      votingState: session.votingState,
+      players: session.players,
+      history: session.history || []
+    });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to fetch game session history' });
+  }
+};
 const { getQuizPrivilegePlayer } = require('../services/gameService');
 
 exports.getQuizPrivilege = async (req, res) => {

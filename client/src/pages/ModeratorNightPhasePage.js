@@ -1,8 +1,20 @@
 import React, { useState } from "react";
 import Header from "../components/common/Header";
+import axios from "axios";
 import Background from "../components/common/Background";
 
 const ModeratorNightPhasePage = () => {
+  const [narratives, setNarratives] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [showNarrative, setShowNarrative] = useState(true);
+  useEffect(() => {
+    axios.get("http://localhost:3000/api/narratives?phase=night")
+      .then(res => {
+        setNarratives(res.data);
+        setLoading(false);
+      })
+      .catch(() => setLoading(false));
+  }, []);
   const [currentNight, setCurrentNight] = useState(1);
   const [currentStep, setCurrentStep] = useState(1); // Step 1: Deskripsi, Step 2: Instruksi
 
@@ -15,16 +27,18 @@ const ModeratorNightPhasePage = () => {
   };
 
   const handleContinue = () => {
+    if (showNarrative) {
+      setShowNarrative(false);
+      return;
+    }
     if (currentStep === 1) {
-      // Pindah ke step 2 (instruksi)
       setCurrentStep(2);
     } else {
-      // Pindah ke malam berikutnya atau fase berikutnya
       if (currentNight < Object.keys(nightData).length) {
         setCurrentNight(currentNight + 1);
         setCurrentStep(1);
+        setShowNarrative(true);
       } else {
-        // Navigate to next phase
         console.log("Navigate to day phase");
       }
     }
@@ -36,6 +50,19 @@ const ModeratorNightPhasePage = () => {
 
       {/* Main Content */}
       <main className="relative z-10 max-w-4xl mx-auto px-4 py-16">
+        {/* Narasi Fase Malam */}
+        {loading ? (
+          <div className="text-center text-lg text-gray-700">Memuat narasi...</div>
+        ) : showNarrative && narratives.length > 0 ? (
+          <div className="bg-white rounded-3xl shadow-2xl p-8 mb-8 text-center">
+            <div className="text-xl font-bold text-dark-green mb-4">Narasi Fase Malam</div>
+            <div className="text-lg text-gray-800 mb-4">{narratives[0].isiBacaan}</div>
+            <button
+              onClick={handleContinue}
+              className="bg-yellow text-dark-red font-bold py-2 px-6 rounded-2xl shadow-lg transition-all duration-300 transform hover:scale-105"
+            >Lanjutkan</button>
+          </div>
+        ) : null}
         {/* Phase Title */}
         <div className="text-center mb-8 relative">
           {/* Background Image */}

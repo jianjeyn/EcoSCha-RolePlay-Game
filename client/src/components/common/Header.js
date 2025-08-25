@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import HamburgerMenu from "./HamburgerMenu";
 
 const Header = ({ user, onLogout }) => {
   const [isSticky, setIsSticky] = useState(false);
@@ -60,8 +61,8 @@ const Header = ({ user, onLogout }) => {
           alt="EcoSCha Navbar"
           className="w-full h-auto object-cover"
         />
-        {/* Navbar Buttons */}
-        <nav className="absolute top-2 right-8 flex space-x-6 z-10">
+        {/* Navbar Buttons - Desktop Only */}
+        <nav className="absolute top-2 right-8 flex space-x-6 z-10 hidden md:flex">
           <a
             href="/"
             className="px-4 py-2 rounded-full text-[#6B7A2C] font-semibold hover:bg-yellow-300 transition"
@@ -87,14 +88,10 @@ const Header = ({ user, onLogout }) => {
             Profil
           </a>
         </nav>
-        {/* Hamburger Menu Button
-        <button className="absolute top-0 right-4 p-2 hover:bg-black/10 rounded-lg transition-colors duration-200 hover:scale-105 transform">
-          <img
-            src="/assets/images/icons/hamburgerbutton.png"
-            alt="Menu"
-            className="w-10 h-10 transition-transform duration-200 hover:brightness-110"
-          />
-        </button> */}
+        {/* Hamburger Menu Button - Mobile Only */}
+        <div className="absolute top-4 right-4 md:hidden z-20">
+          <HamburgerMenu />
+        </div>
 
         {/* User info - conditionally rendered if user exists
         {user && (

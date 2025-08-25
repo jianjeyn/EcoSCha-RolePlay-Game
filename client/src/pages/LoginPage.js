@@ -31,6 +31,7 @@ const LoginPage = () => {
       const res = await axios.post("http://localhost:3000/api/auth/login", formData);
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("userId", res.data.user._id);
+      localStorage.setItem("roleId", formData.roleId); // Simpan roleId
       // Redirect ke halaman penjelasan karakter
       navigate("/role-explanation");
     } catch (err) {
@@ -89,6 +90,7 @@ const LoginPage = () => {
               <button
                 type="button"
                 className="text-blue-600 hover:text-blue-800 text-sm transition-colors duration-200 bg-transparent border-none cursor-pointer"
+                onClick={() => navigate(`/signup?role=${roleId}`)}
               >
                 Belum memiliki akun?
               </button>
