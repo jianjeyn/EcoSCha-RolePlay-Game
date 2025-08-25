@@ -11,7 +11,7 @@ const NarrativePage = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get("http://localhost:3000/api/game-narratives")
+  axios.get(`${process.env.REACT_APP_API_URL}/api/game-narratives`)
       .then(res => {
         // Urutkan narasi sesuai urutan di backend (bisa pakai kapanDibaca atau urutan array)
         setNarratives(res.data);

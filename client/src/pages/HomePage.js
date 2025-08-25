@@ -32,10 +32,9 @@ const HomePage = () => {
     <div className="transform hover:scale-105 transition-transform duration-300 cursor-pointer" onClick={() => handleCharacterClick(character)}>
       <img
         src={character.cardImage || character.image || "/placeholder.svg"}
-        alt={character.displayName || character.name}
+        alt="Kartu Karakter"
         className="w-full h-auto rounded-lg shadow-lg"
       />
-      <div className="mt-2 text-center font-bold text-gray-700">{character.displayName || character.name}</div>
     </div>
   );
 
@@ -116,7 +115,7 @@ const HomePage = () => {
           </div>
         </section>
       {/* Character Modal */}
-      <Modal isOpen={showModal} onClose={closeModal} title={selectedCharacter?.displayName || selectedCharacter?.name} size="md">
+      <Modal isOpen={showModal} onClose={closeModal} title={selectedCharacter?.name} size="md">
         {selectedCharacter && (
           <div className="space-y-4">
             {selectedCharacter.cardImage && (

@@ -1,4 +1,4 @@
-import React from "react";
+// removed duplicate import
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Header from "../components/common/Header";
@@ -13,17 +13,17 @@ const ProfilePage = () => {
     const username = localStorage.getItem("username");
     if (!username) return;
     // Ambil data user
-    axios.get(`http://localhost:3000/api/users?username=${username}`)
+  axios.get(`${process.env.REACT_APP_API_URL}/api/users?username=${username}`)
       .then(res => {
         setUser(res.data[0] || {});
       });
     // Ambil achievement
-    axios.get(`http://localhost:3000/api/achievements?username=${username}`)
+  axios.get(`${process.env.REACT_APP_API_URL}/api/achievements?username=${username}`)
       .then(res => {
         setAchievements(res.data);
       });
     // Ambil game history
-    axios.get(`http://localhost:3000/api/game-session/by-user`)
+  axios.get(`${process.env.REACT_APP_API_URL}/api/game-session/by-user`)
       .then(res => {
         // Format riwayat game
         const history = res.data.map(session => ({
@@ -130,5 +130,4 @@ const ProfilePage = () => {
   );
 };
 
-export default ProfilePage;
 export default ProfilePage;

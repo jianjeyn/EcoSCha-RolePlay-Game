@@ -16,7 +16,7 @@ const QuizPage = () => {
   const [finished, setFinished] = useState(false);
 
   useEffect(() => {
-    axios.get("http://localhost:3000/api/quiz-topics")
+  axios.get(`${process.env.REACT_APP_API_URL}/api/quiz-topics`)
       .then(res => {
         setTopics(res.data);
         setLoading(false);

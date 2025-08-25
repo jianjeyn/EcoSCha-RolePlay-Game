@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import axios from "axios";
 import { useNavigate, useLocation } from "react-router-dom";
 import Header from "../components/common/Header";
@@ -8,14 +9,15 @@ import Background from "../components/common/Background";
 const LoginPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  // Ambil roleId dari query param (hasil scan QR)
+  // Ambil character dari query param (hasil scan QR)
   const params = new URLSearchParams(location.search);
-  const roleId = params.get("role") || "eco_citizen";
+  const character = params.get("character") || "";
   const [formData, setFormData] = useState({
     email: "",
     password: "",
-    roleId,
+    character: character,
   });
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -28,12 +30,19 @@ const LoginPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:3000/api/auth/login", formData);
-      localStorage.setItem("token", res.data.token);
-      localStorage.setItem("userId", res.data.user._id);
-      localStorage.setItem("roleId", formData.roleId); // Simpan roleId
-      // Redirect ke halaman penjelasan karakter
-      navigate("/role-explanation");
+      const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/login`, formData);
+      if (res.data.user && res.data.user._id) {
+        localStorage.setItem("token", res.data.token);
+        localStorage.setItem("userId", res.data.user._id);
+        if (formData.character) {
+          localStorage.setItem("character", formData.character); // Simpan karakter
+          navigate("/landing");
+        } else {
+          navigate("/"); // Atau ke halaman utama/profil
+        }
+      } else {
+        alert("Email atau password salah, atau akun belum terdaftar.");
+      }
     } catch (err) {
       alert("Login gagal: " + (err.response?.data?.error || err.message));
     }
@@ -74,15 +83,23 @@ const LoginPage = () => {
             </div>
 
             {/* Password Input */}
-            <div>
+            <div className="relative">
               <input
-                type="password"
+                type={showPassword ? "text" : "password"}
                 name="password"
                 placeholder="Password"
                 value={formData.password}
                 onChange={handleInputChange}
-                className="w-full px-6 py-4 bg-gray-200 rounded-2xl border-none outline-none text-gray-700 placeholder-gray-500 text-lg focus:bg-gray-100 transition-colors duration-200"
+                className="w-full px-6 py-4 bg-gray-200 rounded-2xl border-none outline-none text-gray-700 placeholder-gray-500 text-lg focus:bg-gray-100 transition-colors duration-200 pr-12"
               />
+              <button
+                type="button"
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 focus:outline-none"
+                onClick={() => setShowPassword((prev) => !prev)}
+                tabIndex={-1}
+              >
+                {showPassword ? <FaEyeSlash size={22} /> : <FaEye size={22} />}
+              </button>
             </div>
 
             {/* Signup Link */}
@@ -90,7 +107,13 @@ const LoginPage = () => {
               <button
                 type="button"
                 className="text-blue-600 hover:text-blue-800 text-sm transition-colors duration-200 bg-transparent border-none cursor-pointer"
-                onClick={() => navigate(`/signup?role=${roleId}`)}
+                onClick={() => {
+                  if (character) {
+                    navigate(`/signup?character=${character}`);
+                  } else {
+                    navigate('/signup');
+                  }
+                }}
               >
                 Belum memiliki akun?
               </button>

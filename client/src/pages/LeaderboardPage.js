@@ -14,7 +14,7 @@ const LeaderboardStart = () => {
 
   useEffect(() => {
     // Fetch leaderboard data from backend (top users by gameScore)
-    axios.get("http://localhost:3000/api/users")
+  axios.get(`${process.env.REACT_APP_API_URL}/api/users`)
       .then(res => {
         // Sort users by gameScore (if available)
         const sorted = res.data.sort((a, b) => (b.gameScore || 0) - (a.gameScore || 0));
@@ -26,7 +26,7 @@ const LeaderboardStart = () => {
           setAchievementText(`Selamat! Kamu masuk TOP ${myIndex+1} di leaderboard!`);
           setShowAchievement(true);
           // Update achievement ke backend
-          axios.post("http://localhost:3000/api/achievements", {
+          axios.post(`${process.env.REACT_APP_API_URL}/api/achievements`, {
             username: myUsername,
             achievement: `TOP ${myIndex+1} Leaderboard`
           }).catch(() => {});

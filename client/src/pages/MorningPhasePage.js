@@ -1,4 +1,4 @@
-import React from "react";
+// removed duplicate import
 import Header from "../components/common/Header";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
@@ -9,7 +9,7 @@ const MorningPhasePage = () => {
   const [loading, setLoading] = useState(true);
   const [showNarrative, setShowNarrative] = useState(true);
   useEffect(() => {
-    axios.get("http://localhost:3000/api/narratives?phase=morning")
+  axios.get(`${process.env.REACT_APP_API_URL}/api/narratives?phase=morning`)
       .then(res => {
         setNarratives(res.data);
         setLoading(false);

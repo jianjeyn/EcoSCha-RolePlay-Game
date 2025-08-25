@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import HamburgerMenu from "./HamburgerMenu";
 
-const Header = ({ user, onLogout }) => {
+const Header = ({ onLogout }) => {
   const [isSticky, setIsSticky] = useState(false);
   const [headerHeight, setHeaderHeight] = useState(0);
   const headerRef = useRef(null);
+  // Detect login state from localStorage
+  const user = localStorage.getItem("token") ? true : false;
 
   // Measure header height
   useEffect(() => {
@@ -70,23 +72,45 @@ const Header = ({ user, onLogout }) => {
             Halaman Utama
           </a>
           <a
-            href="/landing"
-            className="px-4 py-2 rounded-full text-[#6B7A2C] font-semibold hover:bg-yellow-300 transition"
-          >
-            Mulai Permainan
-          </a>
-          <a
             href="/guide"
             className="px-4 py-2 rounded-full text-[#6B7A2C] font-semibold hover:bg-yellow-300 transition"
           >
             Petunjuk
           </a>
-          <a
-            href="/profile"
-            className="px-4 py-2 rounded-full text-[#6B7A2C] font-semibold hover:bg-yellow-300 transition"
-          >
-            Profil
-          </a>
+          {user ? (
+            <>
+              <a
+                href="/profile"
+                className="px-4 py-2 rounded-full text-[#6B7A2C] font-semibold hover:bg-yellow-300 transition"
+              >
+                Profil
+              </a>
+              <button
+                onClick={() => {
+                  localStorage.clear();
+                  window.location.href = "/";
+                }}
+                className="px-4 py-2 rounded-full text-[#982827] font-semibold hover:bg-yellow-300 transition border border-[#982827] ml-2"
+              >
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              <a
+                href="/login"
+                className="px-4 py-2 rounded-full text-[#6B7A2C] font-semibold hover:bg-yellow-300 transition"
+              >
+                Login
+              </a>
+              <a
+                href="/signup"
+                className="px-4 py-2 rounded-full text-[#6B7A2C] font-semibold hover:bg-yellow-300 transition"
+              >
+                Daftar
+              </a>
+            </>
+          )}
         </nav>
         {/* Hamburger Menu Button - Mobile Only */}
         <div className="absolute top-4 right-4 md:hidden z-20">

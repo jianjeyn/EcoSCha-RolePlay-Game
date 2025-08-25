@@ -16,13 +16,13 @@ const LandingPage = () => {
   const navigate = useNavigate();
 
   const handlePlayClick = () => {
-    // Ambil roleId dari localStorage
-    const roleId = localStorage.getItem("roleId") || "eco_citizen";
-    if (roleId === "sustainability_guide") {
+    // Ambil karakter dari localStorage
+    const character = localStorage.getItem("character") || "eco_citizen";
+    if (character === "sustainability_guide") {
       navigate("/moderator-room");
     } else {
-      // Navigasi ke RoleExplanationRoomPage dengan query param role
-      navigate(`/role-explanation-room?role=${roleId}`);
+      // Navigasi ke RoleExplanationRoomPage dengan query param character
+      navigate(`/role-explanation-room?character=${character}`);
     }
   };
 

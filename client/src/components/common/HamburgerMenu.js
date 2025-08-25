@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 const HamburgerMenu = () => {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
+  // Get user from localStorage (or context if available)
+  const user = JSON.parse(localStorage.getItem("user"));
   return (
     <>
       <button
@@ -21,7 +23,24 @@ const HamburgerMenu = () => {
           <button onClick={() => {navigate("/"); setOpen(false);}} className="text-[#6B7A2C] font-semibold text-left">Halaman Utama</button>
           <button onClick={() => {navigate("/landing"); setOpen(false);}} className="text-[#6B7A2C] font-semibold text-left">Mulai Permainan</button>
           <button onClick={() => {navigate("/guide"); setOpen(false);}} className="text-[#6B7A2C] font-semibold text-left">Petunjuk</button>
-          <button onClick={() => {navigate("/profile"); setOpen(false);}} className="text-[#6B7A2C] font-semibold text-left">Profil</button>
+          {user ? (
+            <>
+              <button onClick={() => {navigate("/profile"); setOpen(false);}} className="text-[#6B7A2C] font-semibold text-left">Profil</button>
+              <button
+                onClick={() => {
+                  localStorage.clear();
+                  setOpen(false);
+                  navigate("/");
+                }}
+                className="text-[#982827] font-semibold text-left border border-[#982827] rounded px-2 py-1 mt-2"
+              >Logout</button>
+            </>
+          ) : (
+            <>
+              <button onClick={() => {navigate("/login"); setOpen(false);}} className="text-[#6B7A2C] font-semibold text-left">Login</button>
+              <button onClick={() => {navigate("/register"); setOpen(false);}} className="text-[#6B7A2C] font-semibold text-left">Daftar</button>
+            </>
+          )}
         </div>
       )}
     </>

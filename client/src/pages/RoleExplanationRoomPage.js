@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Header from "../components/common/Header";
 import Background from "../components/common/Background";
+import Footer from "../components/common/Footer";
 import axios from "axios";
 import { useNavigate, useLocation } from "react-router-dom";
 
@@ -9,31 +10,64 @@ import { useNavigate, useLocation } from "react-router-dom";
 const RoleExplanationRoomPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  // Ambil role dari query param
   const params = new URLSearchParams(location.search);
-  const roleId = params.get("role") || localStorage.getItem("roleId") || "eco_citizen";
+  const characterParam = params.get("character") || params.get("role") || localStorage.getItem("character") || "";
+
+  const sessionId = params.get("sessionId") || localStorage.getItem("sessionId");
+  const userId = localStorage.getItem("userId");
   const [profile, setProfile] = useState(null);
+  const [mainCharacter, setMainCharacter] = useState(null);
+  const [otherCharacters, setOtherCharacters] = useState([]);
+  const [generatedCode, setGeneratedCode] = useState("");
   const [roomCode, setRoomCode] = useState("");
   const [inputRoomCode, setInputRoomCode] = useState("");
-  const [generatedCode, setGeneratedCode] = useState("");
+
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    // Fetch user profile
-    axios.get("http://localhost:3000/api/auth/profile", {
-      headers: { Authorization: `Bearer ${token}` }
-    }).then(res => {
-      const userProfile = res.data;
-      // Fetch all characters
-      axios.get("http://localhost:3000/api/characters")
-        .then(charRes => {
-          // Find user's character by roleId from query/localStorage
-          const userCharacter = charRes.data.find(c => c.roleType === roleId);
-          userProfile.character = userCharacter;
-          userProfile.characterList = charRes.data;
-          setProfile(userProfile);
+    // Jika ada param character, ambil data karakter langsung
+    if (characterParam) {
+      // Mapping param ke nama karakter spesifik
+      let targetName = "";
+      if (characterParam === "waste_manager") targetName = "Pak Harsa";
+      else if (characterParam === "sustainability_guide") targetName = "Kang Alam";
+      else if (characterParam === "asep_eco_citizen") targetName = "Asep";
+      else if (characterParam === "ibu_eneng_eco_citizen") targetName = "Ibu Eneng";
+      else if (characterParam === "kang_raka_green_guardian") targetName = "Kang Raka";
+      else if (characterParam === "teh_rani_green_guardian") targetName = "Teh Rani";
+      else if (characterParam === "mang_karwa_waste_villain") targetName = "Mang Karwa";
+      else if (characterParam === "yana_waste_villain") targetName = "Yana";
+      // Fallback: ambil kata pertama dari param
+      else targetName = characterParam.split('_')[0];
+
+      axios.get(`${process.env.REACT_APP_API_URL}/api/characters`).then(charRes => {
+        const allCharacters = charRes.data;
+        // Cari karakter dengan name persis (case-insensitive)
+        const foundChar = allCharacters.find(c => c.name.toLowerCase() === targetName.toLowerCase());
+        setMainCharacter(foundChar);
+        setOtherCharacters(allCharacters.filter(c => c !== foundChar));
+      });
+      return;
+    }
+    // Jika tidak ada param character, fallback ke session
+    if (sessionId && userId) {
+      const token = localStorage.getItem("token");
+      axios.get(`${process.env.REACT_APP_API_URL}/api/gameSession/${sessionId}`, {
+        headers: { Authorization: `Bearer ${token}` }
+      }).then(res => {
+        const session = res.data;
+        const player = session.players.find(p => p.userId._id === userId);
+        axios.get(`${process.env.REACT_APP_API_URL}/api/characters`).then(charRes => {
+          const allCharacters = charRes.data;
+          const userCharacter = allCharacters.find(c => c._id === player.characterId);
+          setProfile({
+            ...player,
+            character: userCharacter,
+            characterList: allCharacters
+          });
+          setOtherCharacters(allCharacters.filter(c => c._id !== player.characterId));
         });
-    });
-  }, [roleId]);
+      });
+    }
+  }, [characterParam, sessionId, userId]);
 
   const generateNewCode = () => {
     const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
@@ -55,29 +89,37 @@ const RoleExplanationRoomPage = () => {
     navigate("/leaderboard");
   };
 
-  const RoleCard = ({ character }) => (
-    <div className="flex justify-center">
-      <div className="relative inline-block">
-        {/* Card Background */}
-        <img
-          src="/assets/images/backgrounds/card-bg.png"
-          alt="Card Background"
-          className="w-auto h-auto max-w-xs rounded-2xl"
-        />
-        {/* Role Image Overlay */}
-        <div
-          className="absolute inset-0 flex items-center justify-center"
-          style={{ transform: "translate(-4px, -4px)" }}
-        >
+  const RoleCard = ({ character }) => {
+    if (!character) return (
+      <div className="flex flex-col items-center justify-center py-8">
+        <div className="text-xl font-bold text-red-700 mb-2">Karakter tidak ditemukan</div>
+        <div className="text-gray-600">Pastikan param dan data karakter di database sudah benar.</div>
+      </div>
+    );
+    return (
+      <div className="flex justify-center">
+        <div className="relative inline-block">
+          {/* Card Background */}
           <img
-            src={character.cardImage}
-            alt={character.name}
-            className="w-auto h-auto max-w-[90%] max-h-[90%] object-contain rounded-2xl"
+            src="/assets/images/backgrounds/card-bg.png"
+            alt="Card Background"
+            className="w-auto h-auto max-w-xs rounded-2xl"
           />
+          {/* Role Image Overlay */}
+          <div
+            className="absolute inset-0 flex items-center justify-center"
+            style={{ transform: "translate(-4px, -4px)" }}
+          >
+            <img
+              src={character.cardImage}
+              alt={character.name}
+              className="w-auto h-auto max-w-[90%] max-h-[90%] object-contain rounded-2xl"
+            />
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  };
 
   const RoleDescription = () => {
     return (
@@ -91,21 +133,6 @@ const RoleExplanationRoomPage = () => {
     );
   };
 
-  const RoleDescriptionSmall = () => {
-    return (
-      <div className="w-full" style={{ marginLeft: "-5%" }}>
-        <img
-          src="/assets/images/icons/moderator-role-desc.png"
-          alt="Role Description"
-          className="w-4/5 h-auto rounded-xl mx-auto"
-        />
-      </div>
-    );
-  };
-
-  // Ambil karakter lain dari database (selain karakter utama user)
-  const otherCharacters = profile?.characterList?.filter(c => c.roleId !== profile?.character?.roleId) || [];
-
   return (
     <Background>
       <Header />
@@ -118,17 +145,17 @@ const RoleExplanationRoomPage = () => {
           </div>
         </section>
         {/* Karakter utama user di atas */}
-        {profile?.character && (
+        {(mainCharacter || profile?.character) ? (
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-1 mb-8">
             <div className="lg:col-span-2">
-              <RoleCard character={profile.character} />
+              <RoleCard character={mainCharacter || profile.character} />
             </div>
             <div className="lg:col-span-3 space-y-10">
               <div className="w-full" style={{ marginLeft: "-5%" }}>
                 <img src="/assets/images/icons/moderator-role-desc.png" alt="Role Description" className="w-4/5 h-auto rounded-xl mx-auto" />
               </div>
-              {/* Room code section */}
-              {profile.user.roleId === "sustainability_guide" ? (
+              {/* Room code section hanya untuk moderator jika dari session */}
+              {profile?.user?.roleId === "sustainability_guide" ? (
                 <div className="flex items-center justify-center">
                   <button
                     onClick={generateNewCode}
@@ -153,27 +180,10 @@ const RoleExplanationRoomPage = () => {
                     MULAI GAME
                   </button>
                 </div>
-              ) : (
-                <form onSubmit={handleSubmitRoomCode} className="flex items-center justify-center">
-                  <input
-                    type="text"
-                    value={inputRoomCode}
-                    onChange={e => setInputRoomCode(e.target.value)}
-                    placeholder="Masukkan kode room dari moderator"
-                    className="px-6 py-4 bg-gray-200 rounded-2xl border-none outline-none text-gray-700 placeholder-gray-500 text-lg focus:bg-gray-100 transition-colors duration-200 mr-4"
-                  />
-                  <button
-                    type="submit"
-                    className="text-white font-bold py-4 px-8 rounded-2xl shadow-lg transition-all duration-300 transform hover:scale-105 font-poppins"
-                    style={{ backgroundColor: "#982827" }}
-                  >
-                    MASUK ROOM
-                  </button>
-                </form>
-              )}
+              ) : null}
             </div>
           </div>
-        )}
+        ) : null}
         {/* Section khusus penjelasan kartu lain (tanpa input/output kode room) */}
         <section className="mt-12">
           <div className="text-center mb-8">
@@ -214,7 +224,9 @@ const RoleExplanationRoomPage = () => {
             </div>
           </div>
         )}
+      <Footer />
       </main>
+      <Footer />
     </Background>
   );
 };
